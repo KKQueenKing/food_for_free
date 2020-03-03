@@ -1,4 +1,6 @@
 class DonationAvailabilitiesController < ApplicationController
+  before_action :set_donation_availability, only: [:edit, :update, :destroy]
+  # ??????
   def new
   end
 
@@ -12,5 +14,12 @@ class DonationAvailabilitiesController < ApplicationController
   end
 
   def destroy
+    @donation_availability.destroy
+  end
+
+  private
+
+  def set_donation_availability
+    # @donation_availability = DonationAvailability.find(params[:id])
   end
 end

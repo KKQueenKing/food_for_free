@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :donation_availabilities, only: [:edit, :update, :destroy]
   resources :food_item_tags, only: [:destroy]
 
-  resources :claims, only: [:destroy] do
+  resources :claims, only: [:show, :destroy] do
     resources :reviews, only: [:new, :create] # only appears for charity
     resources :no_shows, only: [:create] # only appears for business
   end
