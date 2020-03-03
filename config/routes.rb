@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
-  get 'reviews/create'
-  get 'reviews/edit'
-  get 'reviews/update'
-  get 'reviews/destroy'
   devise_for :users
   root to: 'pages#home'
+  get 'style-guide', to: 'pages#style_guide'
   get 'about', to: 'pages#about'
   get 'my_profile', to: 'pages#my_profile', as: :my_profile
   get 'profile/:user', to: 'pages#profile', as: :profile
@@ -28,8 +24,7 @@ Rails.application.routes.draw do
 
   resources :no_shows, only: [:destroy]
   resources :reviews, only: [:edit, :update, :destroy]
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
 # build your donation; donation create page. then redirect to edit instance to add new food items
-
-# resources claims only new create, destroy     (raise exception; cant delete donation if claim exists)
