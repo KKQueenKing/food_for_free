@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_013538) do
+ActiveRecord::Schema.define(version: 2020_03_03_032030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 2020_03_03_013538) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "businesses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "industry"
+    t.text "bio"
+    t.string "email"
+    t.string "website"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
   create_table "charities", force: :cascade do |t|
     t.string "name"
     t.text "bio"
@@ -48,6 +63,46 @@ ActiveRecord::Schema.define(version: 2020_03_03_013538) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_charities_on_user_id"
+  end
+
+  create_table "donation_availabilities", force: :cascade do |t|
+    t.date "start_time"
+    t.date "end_time"
+    t.bigint "food_donation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_donation_id"], name: "index_donation_availabilities_on_food_donation_id"
+  end
+
+  create_table "food_donations", force: :cascade do |t|
+    t.boolean "dropoff"
+    t.integer "distance_limit"
+    t.string "status"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "food_items", force: :cascade do |t|
+    t.bigint "business_id"
+    t.string "name"
+    t.date "expiry_date"
+    t.string "description"
+    t.integer "quantity"
+    t.string "measure"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "food_donation_id"
+    t.index ["business_id"], name: "index_food_items_on_business_id"
+    t.index ["food_donation_id"], name: "index_food_items_on_food_donation_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,5 +122,9 @@ ActiveRecord::Schema.define(version: 2020_03_03_013538) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "businesses", "users"
   add_foreign_key "charities", "users"
+  add_foreign_key "donation_availabilities", "food_donations"
+  add_foreign_key "food_items", "businesses"
+  add_foreign_key "food_items", "food_donations"
 end
