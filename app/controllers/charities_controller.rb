@@ -1,5 +1,5 @@
 class CharitiesController < ApplicationController
-  before_action :set_food_donation, only: [:show, :edit, :update, :destroy]
+  before_action :set_charity, only: [:show, :edit, :update, :destroy]
   def index
     @charities = Charity.all
   end
