@@ -1,23 +1,23 @@
 .donation-card {
-  border-color: #A39594;
+  border-color: white;
   padding: 16px;
 
   .donation-card-title {
     font-size: 24px;
-
+    color: $black;
   }
   .donation-card-body {
     overflow-wrap: normal;
     width: 20em;
-
+    color: $black;
   }
   .donation-card-quantity {
-
+    color: $black;
   }
   .donation-card-location {
-
+    color: $black;
   }
   .donation-card-expiry {
-
+    color: $black;
   }
 }
