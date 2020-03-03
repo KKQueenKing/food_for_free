@@ -20,6 +20,6 @@ class DonationAvailabilitiesController < ApplicationController
   private
 
   def set_donation_availability
-    # @donation_availability = DonationAvailability.find(params[:id])
+    @donation_availability = DonationAvailability.find(params[:id])
   end
 end
