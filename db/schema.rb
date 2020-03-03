@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_032030) do
+ActiveRecord::Schema.define(version: 2020_03_03_032153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 2020_03_03_032030) do
     t.index ["user_id"], name: "index_charities_on_user_id"
   end
 
+  create_table "claims", force: :cascade do |t|
+    t.bigint "food_donation_id"
+    t.bigint "charity_id"
+    t.bigint "business_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_claims_on_business_id"
+    t.index ["charity_id"], name: "index_claims_on_charity_id"
+    t.index ["food_donation_id"], name: "index_claims_on_food_donation_id"
+  end
+
   create_table "donation_availabilities", force: :cascade do |t|
     t.date "start_time"
     t.date "end_time"
@@ -85,6 +96,15 @@ ActiveRecord::Schema.define(version: 2020_03_03_032030) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "food_item_tags", force: :cascade do |t|
+    t.bigint "food_item_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_item_id"], name: "index_food_item_tags_on_food_item_id"
+    t.index ["tag_id"], name: "index_food_item_tags_on_tag_id"
+  end
+
   create_table "food_items", force: :cascade do |t|
     t.bigint "business_id"
     t.string "name"
@@ -97,6 +117,22 @@ ActiveRecord::Schema.define(version: 2020_03_03_032030) do
     t.bigint "food_donation_id"
     t.index ["business_id"], name: "index_food_items_on_business_id"
     t.index ["food_donation_id"], name: "index_food_items_on_food_donation_id"
+  end
+
+  create_table "no_shows", force: :cascade do |t|
+    t.bigint "claim_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["claim_id"], name: "index_no_shows_on_claim_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "claim_id"
+    t.string "content"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["claim_id"], name: "index_reviews_on_claim_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -124,7 +160,14 @@ ActiveRecord::Schema.define(version: 2020_03_03_032030) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses", "users"
   add_foreign_key "charities", "users"
+  add_foreign_key "claims", "businesses"
+  add_foreign_key "claims", "charities"
+  add_foreign_key "claims", "food_donations"
   add_foreign_key "donation_availabilities", "food_donations"
+  add_foreign_key "food_item_tags", "food_items"
+  add_foreign_key "food_item_tags", "tags"
   add_foreign_key "food_items", "businesses"
   add_foreign_key "food_items", "food_donations"
+  add_foreign_key "no_shows", "claims"
+  add_foreign_key "reviews", "claims"
 end
