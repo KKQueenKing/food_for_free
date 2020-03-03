@@ -1,30 +1,30 @@
 Rails.application.routes.draw do
-
-  get 'food_items/index'
-  get 'food_items/new'
-  get 'food_items/create'
-  get 'food_items/edit'
-  get 'food_items/update'
-  get 'food_items/destroy'
-  get 'reviews/new'
-  get 'reviews/create'
-  get 'reviews/edit'
-  get 'reviews/update'
-  get 'reviews/destroy'
-  get 'no_shows/create'
-  get 'no_shows/destroy'
-  get 'claims/create'
-  get 'claims/destroy'
-  get 'food_donations/index'
-  get 'food_donations/show'
-  get 'food_donations/new'
-  get 'food_donations/create'
-  get 'food_donations/edit'
-  get 'food_donations/update'
-  get 'food_donations/destroy'
-  get 'businesses/resources'
   devise_for :users
   root to: 'pages#home'
   get 'style-guide', to: 'pages#style_guide'
+  get 'about', to: 'pages#about'
+  get 'my_profile', to: 'pages#my_profile', as: :my_profile
+  get 'profile/:user', to: 'pages#profile', as: :profile
+
+  resources :donations do
+    resources :donation_availabilities, only: [:new, :create]
+    resources :food_items, only: [:new, :create]
+    resources :claims, only: [:new, :create]
+    resources :food_item_tags, only: [:create]
+  end
+
+  resources :food_items, except: [:new, :create]
+  resources :donation_availabilities, only: [:edit, :update, :destroy]
+  resources :food_item_tags, only: [:destroy]
+
+  resources :claims, only: [:destroy] do
+    resources :reviews, only: [:new, :create] # only appears for charity
+    resources :no_shows, only: [:create] # only appears for business
+  end
+
+  resources :no_shows, only: [:destroy]
+  resources :reviews, only: [:edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+# build your donation; donation create page. then redirect to edit instance to add new food items

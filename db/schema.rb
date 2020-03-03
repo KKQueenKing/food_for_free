@@ -129,9 +129,9 @@ ActiveRecord::Schema.define(version: 2020_03_03_032153) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "claim_id"
     t.string "content"
-    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "star"
     t.index ["claim_id"], name: "index_reviews_on_claim_id"
   end
 
