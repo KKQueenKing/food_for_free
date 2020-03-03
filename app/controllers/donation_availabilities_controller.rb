@@ -1,5 +1,4 @@
-class ReviewsController < ApplicationController
-  # only appears for charity
+class DonationAvailabilitiesController < ApplicationController
   def new
   end
 
