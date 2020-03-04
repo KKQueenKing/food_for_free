@@ -3,17 +3,15 @@ class ClaimsController < ApplicationController
   def show
   end
 
-  def new
-    @claim = Claim.new # do we need this if not on own page??
-  end
-
   def create
     @claim = Claim.new
-    # @claim.food_donation = find ID
+    @claim.food_donation = FoodDonation.find(params[:food_donation_id])
+    @claim.charity = current_user.charity
+    @claim.business = FoodDonation.food_items.first.business
+    @claim.save!
   end
 
   def destroy
-    # set claim
     @claim.destroy
   end
 
