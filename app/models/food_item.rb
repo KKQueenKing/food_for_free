@@ -1,5 +1,6 @@
 class FoodItem < ApplicationRecord
   MEASURES = ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres']
+  has_one_attached :photo
   belongs_to :business
   belongs_to :food_donation, optional: true
   has_many :food_item_tags
@@ -9,6 +10,5 @@ class FoodItem < ApplicationRecord
   validates :expiry_date, presence: true
   validates :description, presence: true
   validates :quantity, presence: true
-  validates :measure, presence: true
-  validates :measure, :inclusion { in: MEASURES }
+  validates :measure, inclusion: { in: MEASURES }
 end
