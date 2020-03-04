@@ -1,8 +1,7 @@
 class NoShowsController < ApplicationController
-   # only appears for business
   def create
     @no_show = NoShow.new
-    @no_show.claim = @claim
+    @no_show.claim = Claim.find(params[:claim_id])
     if @no_show.save
       redirect_to claim_path(@claim), notice: "No show report submitted."
     else

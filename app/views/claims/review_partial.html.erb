@@ -1,0 +1,5 @@
+Leave a review:
+  <%= simple_form_for [@claim, @review] do |f|%>
+    <%= f.input :content %>
+    <%= f.button :submit, 'Submit Review' %>
+  <% end %>
