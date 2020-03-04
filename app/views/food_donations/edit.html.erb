@@ -1,2 +1,26 @@
-<h1>FoodDonations#edit</h1>
-<p>Find me in app/views/food_donations/edit.html.erb</p>
+
+
+<div class="container">
+  <div>
+    <h1>Food Items</h1>
+    <% @food_donation.food_items.each do |food_item| %>
+    <p><%= food_item.name %></p>
+    <%= cl_image_tag food_item.photo.key %>
+    <% end %>
+  </div>
+
+  <div>
+    <h1>Add Food Item</h1>
+    <%= simple_form_for [@food_donation, FoodItem.new] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :quantity %>
+    <%= f.input :measure, collection: ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres'] %>
+    <%= f.input :expiry_date, as: :date %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+
+</div>
+

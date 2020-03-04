@@ -21,6 +21,7 @@ class FoodDonationsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update

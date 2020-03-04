@@ -6,12 +6,21 @@ class FoodItemsController < ApplicationController
 
   def new
     @food_item = FoodItem.new
+    @food_donation = FoodDonation.new.find(params[:food_donation_id])
   end
 
   def create
-    @food_item = FoodItem.new
-    #
-    @food_item.save!
+    @food_item = FoodItem.new(food_item_params)
+    @business = Business.find(current_user.id)
+    @food_donation = FoodDonation.find(params[:food_donation_id])
+    @food_item.business = @business
+    @food_item.food_donation = @food_donation
+
+    if @food_item.save!
+      redirect_to edit_food_donation_path(@food_donation)
+    else
+      render :new
+    end
   end
 
   def show
@@ -31,5 +40,9 @@ class FoodItemsController < ApplicationController
 
   def set_food_item
     @food_item = FoodItem.find(params[:id])
+  end
+
+  def food_item_params
+    params.require(:food_item).permit(:name, :expiry_date, :description, :quantity, :measure, :photo)
   end
 end
