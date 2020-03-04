@@ -18,5 +18,6 @@ class PagesController < ApplicationController
   end
 
   def style_guide
+    @charity = Charity.last
   end
 end
