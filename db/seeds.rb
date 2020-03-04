@@ -321,5 +321,14 @@ business = Business.new(
   business.save!
 
 
+tags_array = ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
+  "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit", "Vegetable",
+  "Sugar-Free", "Sweet", "Drink", "Canned Food", "Pickles and Preserves",
+  "Long-Lasting", "Dairy", "Snack", "Nut-Free", "Meat", "Fish", "Poultry",
+  "Grains", "Baked Goods", "Condiments", "Breakfast", "Soup", "Low Sodium"]
 
-
+tags_array.each do |tag_name|
+  tag = Tag.new
+  tag.name = tag_name
+  tag.save!
+end

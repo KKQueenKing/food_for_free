@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :charities
 
-  resources :donations do
+  resources :food_donations do
     resources :donation_availabilities, only: [:new, :create]
     resources :food_items, only: [:new, :create]
     resources :claims, only: [:new, :create]
