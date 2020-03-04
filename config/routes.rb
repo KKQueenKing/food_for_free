@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'my_profile', to: 'pages#my_profile', as: :my_profile
   get 'profile/:user', to: 'pages#profile', as: :profile
 
+  resources :businesses
+
+  resources :charities
+
   resources :donations do
     resources :donation_availabilities, only: [:new, :create]
     resources :food_items, only: [:new, :create]
