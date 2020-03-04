@@ -320,7 +320,6 @@ business = Business.new(
   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   business.save!
 
-
 tags_array = ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
   "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit", "Vegetable",
   "Sugar-Free", "Sweet", "Drink", "Canned Food", "Pickles and Preserves",
