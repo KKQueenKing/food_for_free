@@ -1,1 +1,19 @@
-this is a new business page, reached if the user select's "i'm a business during sign up"
+<div class="container">
+  <h3>Create Business</h3>
+  <%= simple_form_for @business do |f| %>
+  <%= f.input :name %>
+  <%= f.input :bio %>
+  <%= f.input :address %>
+  <%= f.input :email %>
+  <%= f.input :industry, collection: ["Health and Social Services", "Construction and Manufacturing",
+    "Education and Training", "Retail Trade", "Public Administration",
+    "Professional and Technical Services", "Hospitality", "Logistics", "Other Services",
+    "Mining and Resources", "Clean Energy", "Agriculture"] %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, 'Create Business' %>
+  <% end %>
+</div>
+
+
+
+
