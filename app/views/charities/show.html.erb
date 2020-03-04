@@ -1,0 +1,12 @@
+<div class="container">
+  <h1><%= @charity.name %></h1>
+  <p><%= @charity.bio %></p>
+  <!-- cl_image_tag -->
+    <ul>
+    <li>Phone:<%= @charity.phone_number %></li>
+    <li>Email: <%= @charity.email %></li>
+    <li>Address: <%= @charity.address %></li>
+    <li><a href='<%= @charity.website %>' target='_blank'>See Website</a></li>
+    </ul>
+</div>
+<!-- need to style li to no bullet -->

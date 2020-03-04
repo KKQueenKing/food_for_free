@@ -1,0 +1,13 @@
+<div class="container">
+  <h3>Update Details for <%= @charity.name %></h3>
+  <%= simple_form_for @charity do |f| %>
+  <%= f.input :name %>
+  <%= f.input :bio %>
+  <%= f.input :address %>
+  <%= f.input :email %>
+  <%= f.input :phone_number %>
+  <%= f.input :website %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, 'Save Changes' %>
+  <% end %>
+</div>
