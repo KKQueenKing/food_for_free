@@ -1,5 +1,5 @@
 .navbar {
-  justify-content: space-between;
+  // justify-content: space-between;
   background: white;
 }
 
@@ -7,6 +7,12 @@
   img {
     width: 85px;
     margin-left: 20px;
+  }
+}
+
+.full-logo {
+  img {
+    width: 200px;
   }
 }
 
