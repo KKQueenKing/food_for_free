@@ -1,2 +1,10 @@
-<h1>FoodDonations#new</h1>
-<p>Find me in app/views/food_donations/new.html.erb</p>
+<div class="container">
+  <h1>Create Food Donation</h1>
+
+  <%= simple_form_for @food_donation do |f| %>
+  <%= f.input :address %>
+  <%= f.input :dropoff, as: :radio_buttons %>
+  <%= f.input :distance_limit, label: 'Distance Limit (kilometres)', collection: [5, 10, 15, 20, 25, 50, 100] %>
+  <%= f.submit %>
+  <% end %>
+</div>
