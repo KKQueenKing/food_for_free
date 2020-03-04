@@ -11,5 +11,5 @@ This donation includes:
 <% end %>
 </ul>
 
-<%= render review_partial if current_user.charity? %>
-<%= render no_show_partial if current_user.business? %>
+<%= render review_partial if current_user.charity == @claim.charity %>
+<%= render no_show_partial if current_user.business == @claim.business %>
