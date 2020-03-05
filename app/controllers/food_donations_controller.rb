@@ -2,6 +2,15 @@ class FoodDonationsController < ApplicationController
   before_action :set_food_donation, only: [:show, :edit, :update, :destroy]
   def index
     @food_donations = FoodDonation.all
+
+    @markers = @food_donations.map do |food_donation|
+      {
+        lat: food_donation.latitude,
+        lng: food_donation.longitude,
+        image_url: helpers.asset_url('FFF_pindrop_yellow.png')
+        # infoWindow: render_to_string(partial: "info_window", locals: { tool: tool })
+      }
+    end
   end
 
   def show
