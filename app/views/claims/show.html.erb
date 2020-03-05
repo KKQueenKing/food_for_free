@@ -1,8 +1,8 @@
 I'm a page to display details about a particular claim thats been made on a donation
 
 
-Yay for <%= @claim.charity %>!
-You have claimed a donation from <%= @claim.business %>
+Yay for <%= @claim.charity.name %>!
+You have claimed a donation from <%= @claim.business.name %>
 
 This donation includes:
 <ul>
@@ -11,5 +11,5 @@ This donation includes:
 <% end %>
 </ul>
 
-<%= render review_partial if current_user.charity == @claim.charity %>
-<%= render no_show_partial if current_user.business == @claim.business %>
+<%= render 'review_partial' if current_user.charity == @claim.charity %>
+<%= render 'no_show_partial' if current_user.business == @claim.business %>

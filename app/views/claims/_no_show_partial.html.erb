@@ -1,6 +1,6 @@
 <p>If you have arranged with a charity representative to have your donation
   collected and they do not arrive at all, please report this to us with the
   button below:</p>
-  <%= simple_form_for [@claim, @no_show] do |f|%>
+  <%= simple_form_for [@claim, NoShow.new] do |f|%>
     <%= f.button :submit, 'Report No Show', data: { confirm: "Are you sure?" } %>
   <% end %>
