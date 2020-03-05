@@ -1,2 +1,8 @@
 <h1>FoodDonations#show</h1>
+
+<h3>Some food item stuffs here</h3>
 <p>Find me in app/views/food_donations/show.html.erb</p>
+
+<%= simple_form_for [@food_donation, Claim.new] do |f| %>
+<%= f.button :submit, 'We need this!', method: :post, class: 'btn btn-info submit-button' %>
+<% end %>

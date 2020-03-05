@@ -2,23 +2,33 @@
 
 <div class="container">
   <div>
-    <h1>Food Items</h1>
-
-    When is this food going to be available? Please add your hours below.
+    When will this donation be available? Please add your hours below.
     E.g. Monday 9-5, Wednesday 7-3.
-    <%= simple_form_for [@food_donation, @food_donation_availability] %>
-    <div class="form-card">
-      <%= f.input %>
-      <%= f.input :start_time, as: :datetime, html5: true %>
-      <%= f.input :end_time, as: :datetime, html5: true %>
-      <%= f.submit, 'Add Available Time' %>
-      <% end %>
-    </div>
+
+   <div class="form-card">
+    <%= simple_form_for [@food_donation, DonationAvailability.new ] do |f| %>
+    <%= f.input :start_time, as: :datetime, html5: true %>
+    <%= f.input :end_time, as: :datetime, html5: true %>
+    <%= f.button :submit, 'Add Availability', method: :post, class: 'btn btn-info submit-button' %>
+    <% end %>
+  </div>
 
     <% @food_donation.food_items.each do |food_item| %>
     <p><%= food_item.name %></p>
     <%= cl_image_tag food_item.photo.key %>
-    <% end %>
+    <% end %></div>
+  <div>
+    <div>
+      <% @avail_times = @food_donation.donation_availabilities %>
+      <%= 'Available:' unless @avail_times.empty? %>
+      <ul>
+      <% @avail_times.each do |time| %>
+      <li>Between <%= time.start_time %> and <%= time.end_time %></li>
+      <% end %>
+      </ul>
+    </div>
+
+    <h1>Food Items</h1>
   </div>
 
   <div>
