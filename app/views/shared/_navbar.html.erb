@@ -18,10 +18,12 @@
         <li class="nav-item dropdown">
           <%= image_tag "FFF_logo_yellow", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
             <%= link_to "My Profile", my_profile_path, class: "dropdown-item" if user_signed_in? %>
             <%= link_to "Register", new_user_registration_path, class: "nav-link" unless user_signed_in? %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" if user_signed_in? %>
             <%= link_to "Sign In", user_session_path, class: "nav-link" unless user_signed_in? %>
+
           </div>
         </li>
       </ul>

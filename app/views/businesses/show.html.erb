@@ -5,4 +5,4 @@ this is a show page for an individual business....... not sure if replaces
 <h1>
   <%= @business.name %>
 </h1>
-  <%= image_tag @business.photo, alt: "alttext" %>
+  <%= cl_image_tag @business.photo.key, alt: "alttext" %>

@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     stored_location_for(resource) || root_path
   end
 
+  def after_sign_up_path_for(resource)
+    resource.account == 'Business' ? new_business_path : new_charity_path || root_path
+  end
+
   protected
 
   def configure_permitted_parameters
