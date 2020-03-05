@@ -26,6 +26,8 @@
             <%= link_to "Register", "#", class: "nav-link" unless user_signed_in? %>
             <%= link_to "Log out", "#", method: :delete, class: "nav-link" if user_signed_in? %>
             <%= link_to "Sign In", "#", class: "nav-link" unless user_signed_in? %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" if user_signed_in? %>
+
           </div>
         </li>
       </ul>
