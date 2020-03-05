@@ -9,6 +9,7 @@ require 'open-uri'
 Charity.destroy_all
 Business.destroy_all
 User.destroy_all
+Tag.destroy_all
 
 demo_user_1 = User.new(
     email: 'harry@royal.com',
@@ -58,19 +59,19 @@ charity = Charity.new(
   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   charity.save!
 
-charity = Charity.new(
-  name: "Church of All Nations",
-  bio: 'A community lunch is provided as emergency relief once a week.',
-  address: '180 Palmerston Street, Carlton VIC 3053',
-  email: 'hellocontact@cancarlton.com.au',
-  website: 'www.carlton-uca.org',
-  phone_number: '(03) 9347 7077',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "Church of All Nations",
+#   bio: 'A community lunch is provided as emergency relief once a week.',
+#   address: '180 Palmerston Street, Carlton VIC 3053',
+#   email: 'hellocontact@cancarlton.com.au',
+#   website: 'www.carlton-uca.org',
+#   phone_number: '(03) 9347 7077',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('http://carlton-uca.org/news/wp-content/uploads/2014/03/CANLogo-300x107.jpg')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('http://carlton-uca.org/news/wp-content/uploads/2014/03/CANLogo-300x107.jpg')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
 charity = Charity.new(
   name: "Lazarus Centre",
@@ -128,19 +129,19 @@ charity = Charity.new(
   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   charity.save!
 
-charity = Charity.new(
-  name: "The Big Umbrella",
-  bio: 'Operating both locally and internationally, we address issues impacting on the marginalised, those affected by human rights abuses, exploitation, forced labour and homelessness.',
-  address: '80 Harbour Esplanade, Docklands VIC 3008',
-  email: 'hello@thebigumbrella.org',
-  website: 'https://thebigumbrella.org/',
-  phone_number: '(03) 9670 8339',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "The Big Umbrella",
+#   bio: 'Operating both locally and internationally, we address issues impacting on the marginalised, those affected by human rights abuses, exploitation, forced labour and homelessness.',
+#   address: '80 Harbour Esplanade, Docklands VIC 3008',
+#   email: 'hello@thebigumbrella.org',
+#   website: 'https://thebigumbrella.org/',
+#   phone_number: '(03) 9670 8339',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://thebigumbrella.org/wp-content/uploads/2016/11/logo-40.png')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('https://thebigumbrella.org/wp-content/uploads/2016/11/logo-40.png')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
 charity = Charity.new(
   name: "Feed Appeal",
@@ -170,20 +171,20 @@ charity = Charity.new(
   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   charity.save!
 
-business = Business.new(
-  name: 'Strange Love',
-  bio: 'Our Lo-Cal Sodas are Naturally Lower in Sugar, with No Added Sweeteners. We create the Drink Drink Drinkers Drink. Premium Mixers.',
-  address: '32 Wellington St, Flemington VIC 3031',
-  email: 'hello@strangelove.com.au',
-  phone_number: '1300 712 081',
-  website: 'https://strangelove.com.au/',
-  industry: 'Retail Trade',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'Strange Love',
+#   bio: 'Our Lo-Cal Sodas are Naturally Lower in Sugar, with No Added Sweeteners. We create the Drink Drink Drinkers Drink. Premium Mixers.',
+#   address: '32 Wellington St, Flemington VIC 3031',
+#   email: 'hello@strangelove.com.au',
+#   phone_number: '1300 712 081',
+#   website: 'https://strangelove.com.au/',
+#   industry: 'Retail Trade',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://cdn.shopify.com/s/files/1/1668/6293/t/6/assets/logo-white-br.png?18')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://cdn.shopify.com/s/files/1/1668/6293/t/6/assets/logo-white-br.png?18')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
 business = Business.new(
   name: 'Teta Mona',
@@ -200,35 +201,35 @@ business = Business.new(
   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   business.save!
 
-business = Business.new(
-  name: 'Crown Casino',
-  bio: 'Crown Melbourne offers a dazzling array of gaming options in a vibrant and sophisticated setting, providing an experience unparalleled in Melbourne.',
-  address: '8 Whiteman St, Southbank VIC 3006',
-  email: 'hello@crown.com.au',
-  phone_number: '03 9292 6235',
-  website: 'https://www.crownmelbourne.com.au/casino',
-  industry: 'Hospitality',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'Crown Casino',
+#   bio: 'Crown Melbourne offers a dazzling array of gaming options in a vibrant and sophisticated setting, providing an experience unparalleled in Melbourne.',
+#   address: '8 Whiteman St, Southbank VIC 3006',
+#   email: 'hello@crown.com.au',
+#   phone_number: '03 9292 6235',
+#   website: 'https://www.crownmelbourne.com.au/casino',
+#   industry: 'Hospitality',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://www.crownmelbourne.com.au/CrownWebsite/images/logos/crown.png')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://www.crownmelbourne.com.au/CrownWebsite/images/logos/crown.png')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
-business = Business.new(
-  name: 'Black Truffle',
-  bio: 'With our unique and refined catering menus driven by the seasons it is little wonder that Black Truffle stands out as Melbourne’s leading corporate catering company. Over our 25 years of operation we have successfully catered events, functions, and conferences of all sizes.',
-  address: '130 Cromwell St, Collingwood VIC 3066',
-  email: 'hello@blacktruffle.net.au',
-  phone_number: '(03) 9419 9290',
-  website: 'https://www.blacktruffle.net.au/',
-  industry: 'Hospitality',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'Black Truffle',
+#   bio: 'With our unique and refined catering menus driven by the seasons it is little wonder that Black Truffle stands out as Melbourne’s leading corporate catering company. Over our 25 years of operation we have successfully catered events, functions, and conferences of all sizes.',
+#   address: '130 Cromwell St, Collingwood VIC 3066',
+#   email: 'hello@blacktruffle.net.au',
+#   phone_number: '(03) 9419 9290',
+#   website: 'https://www.blacktruffle.net.au/',
+#   industry: 'Hospitality',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://www.blacktruffle.net.au/wp-content/uploads/2018/04/logo_02.png')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://www.blacktruffle.net.au/wp-content/uploads/2018/04/logo_02.png')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
 business = Business.new(
   name: 'Woolumbi Farm',
@@ -245,65 +246,65 @@ business = Business.new(
   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   business.save!
 
-business = Business.new(
-  name: 'PwC',
-  bio: 'PricewaterhouseCoopers is a multinational professional services network of firms operating as partnerships under the PwC brand. The term "PwC" may be used to refer to an individual member firm within the PwC network, or to several or all of them collectively.',
-  address: '2 Riverside Quay, Southbank VIC 3006',
-  email: 'hello@pwc.org',
-  phone_number: '(03) 8603 1000',
-  website: 'https://www.pwc.com.au/',
-  industry: 'Professional and Technical Services',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'PwC',
+#   bio: 'PricewaterhouseCoopers is a multinational professional services network of firms operating as partnerships under the PwC brand. The term "PwC" may be used to refer to an individual member firm within the PwC network, or to several or all of them collectively.',
+#   address: '2 Riverside Quay, Southbank VIC 3006',
+#   email: 'hello@pwc.org',
+#   phone_number: '(03) 8603 1000',
+#   website: 'https://www.pwc.com.au/',
+#   industry: 'Professional and Technical Services',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/549928_10150683690312978_1582285604_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=v6xlWJ0qIpcAX_KdxXC&_nc_ht=scontent.fsyd3-1.fna&oh=c5bbeb0b6f9e38644ad4f4c552b89a91&oe=5E843ECB')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/549928_10150683690312978_1582285604_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=v6xlWJ0qIpcAX_KdxXC&_nc_ht=scontent.fsyd3-1.fna&oh=c5bbeb0b6f9e38644ad4f4c552b89a91&oe=5E843ECB')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
-business = Business.new(
-  name: 'Grand Hyatt Melbourne',
-  bio: 'Grand Hyatt Melbourne is a unique, purpose built facility, catering for residential conferences, seminars, product launches, exhibitions, meetings and events.',
-  address: '123 Collins St, Melbourne VIC 3000',
-  email: 'hello@granhyatt.net',
-  phone_number: '03 9657 1234',
-  website: 'https://www.hyatt.com/en-US/hotel/australia/grand-hyatt-melbourne/melbo/special-events',
-  industry: 'Hospitality',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'Grand Hyatt Melbourne',
+#   bio: 'Grand Hyatt Melbourne is a unique, purpose built facility, catering for residential conferences, seminars, product launches, exhibitions, meetings and events.',
+#   address: '123 Collins St, Melbourne VIC 3000',
+#   email: 'hello@granhyatt.net',
+#   phone_number: '03 9657 1234',
+#   website: 'https://www.hyatt.com/en-US/hotel/australia/grand-hyatt-melbourne/melbo/special-events',
+#   industry: 'Hospitality',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://cdn.shopify.com/s/files/1/1668/6293/t/6/assets/logo-white-br.png?18')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://cdn.shopify.com/s/files/1/1668/6293/t/6/assets/logo-white-br.png?18')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
-business = Business.new(
-  name: 'Farm Vigano',
-  bio: 'Dedicated to preserving the art of true Italian food + culture.',
-  address: '10 Bushmans Way, South Morang VIC 3752',
-  email: 'hello@framvigano.org',
-  phone_number: '(03) 9407 1212',
-  website: 'http://farmvigano.com.au/',
-  industry: 'Hospitality',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'Farm Vigano',
+#   bio: 'Dedicated to preserving the art of true Italian food + culture.',
+#   address: '10 Bushmans Way, South Morang VIC 3752',
+#   email: 'hello@framvigano.org',
+#   phone_number: '(03) 9407 1212',
+#   website: 'http://farmvigano.com.au/',
+#   industry: 'Hospitality',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://farmvigano.com.au/wp-content/uploads/2019/03/farm_vigano_logo_green.png')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://farmvigano.com.au/wp-content/uploads/2019/03/farm_vigano_logo_green.png')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
-business = Business.new(
-  name: 'The Farm Cafe at Collingwood Childrens’ Farm',
-  bio: 'ABUNDANT FOOD. GORGEOUS STYLING. ANY VENUE. MADE IN MELBOURNE.',
-  address: '18 St Heliers St, Abbotsford VIC 3067',
-  email: 'hello@thefarmcafe.net',
-  phone_number: '(03) 9415 6581',
-  website: 'https://www.farmcafe.com.au/',
-  industry: 'Hospitality',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'The Farm Cafe at Collingwood Childrens’ Farm',
+#   bio: 'ABUNDANT FOOD. GORGEOUS STYLING. ANY VENUE. MADE IN MELBOURNE.',
+#   address: '18 St Heliers St, Abbotsford VIC 3067',
+#   email: 'hello@thefarmcafe.net',
+#   phone_number: '(03) 9415 6581',
+#   website: 'https://www.farmcafe.com.au/',
+#   industry: 'Hospitality',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://static1.squarespace.com/static/52ac1e31e4b04dd8c25afc1e/t/5b3c2701f950b77f5166648c/1581564968134/?format=1000w')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://static1.squarespace.com/static/52ac1e31e4b04dd8c25afc1e/t/5b3c2701f950b77f5166648c/1581564968134/?format=1000w')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
 business = Business.new(
   name: 'Bank of Melbourne',
