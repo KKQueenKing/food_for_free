@@ -3,6 +3,16 @@
 <div class="container">
   <div>
     <h1>Food Items</h1>
+
+    When is this food going to be available? Please add your hours below.
+    E.g. Monday 9-5, Wednesday 7-3.
+    <%= simple_form_for [@food_donation, @food_donation_availability] %>
+    <%= f.input %>
+    <%= f.input :start_time, as: :datetime, html5: true %>
+    <%= f.input :end_time, as: :datetime, html5: true %>
+    <%= f.submit, 'Add Available Time' %>
+    <% end %>
+
     <% @food_donation.food_items.each do |food_item| %>
     <p><%= food_item.name %></p>
     <%= cl_image_tag food_item.photo.key %>
