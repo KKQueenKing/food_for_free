@@ -3,6 +3,8 @@ class FoodDonation < ApplicationRecord
   has_many :food_items
   has_many :donation_availabilities, dependent: :destroy
   has_one :claim, dependent: :restrict_with_exception
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   validates :address, presence: true
 
