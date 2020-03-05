@@ -1,12 +1,11 @@
 <nav>
   <div class="navbar fixed-top navbar-expand-sm navbar-light border-bottom border-info">
-    <div class="navbar_logo d-flex">
-      <%= image_tag "FFF_logo" %>
-      <div class="d-none d-md-block">Food For Free</div>
-    </div>
-
-
-
+      <div class="navbar_logo d-flex">
+        <%= link_to image_tag("FFF_logo"), root_path %>
+        </div>
+      <div class="d-none d-md-block full-logo">
+          <%= link_to image_tag("FFF_draft_full_logo"), root_path %>
+      </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       CHANGE ME
     </button>
@@ -14,18 +13,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <%= link_to "Make a Donation", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "My Profile", user_signed_in? ? "#" : "#", class: "nav-link" %>
+          <%= link_to "Make a Donation", new_food_donation_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "FFF_logo_yellow", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Messages", "#", class: "dropdown-item" if user_signed_in? %>
-            <%= link_to "Register", "#", class: "nav-link" unless user_signed_in? %>
-            <%= link_to "Log out", "#", method: :delete, class: "nav-link" if user_signed_in? %>
-            <%= link_to "Sign In", "#", class: "nav-link" unless user_signed_in? %>
+            <%= link_to "My Profile", my_profile_path, class: "dropdown-item" if user_signed_in? %>
+            <%= link_to "Register", new_user_registration_path, class: "nav-link" unless user_signed_in? %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" if user_signed_in? %>
+            <%= link_to "Sign In", user_session_path, class: "nav-link" unless user_signed_in? %>
           </div>
         </li>
       </ul>
