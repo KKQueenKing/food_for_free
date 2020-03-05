@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_234515) do
+ActiveRecord::Schema.define(version: 2020_03_05_041331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_234515) do
   end
 
   create_table "donation_availabilities", force: :cascade do |t|
-    t.date "start_time"
-    t.date "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.bigint "food_donation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

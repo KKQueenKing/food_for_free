@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :charities
-  has_many :businesses
+  has_one :charity
+  has_one :business
   ACCOUNTS = ['Charity', 'Business']
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
