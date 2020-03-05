@@ -1,10 +1,13 @@
 <div class="container">
   <h1>Create Food Donation</h1>
+    <div class="form-card">
+    <%= simple_form_for @food_donation do |f| %>
+    <%= f.input :address, placeholder: "eg. 10 Main St, Brunswick..." %>
+    <%= f.input :dropoff, as: :radio_buttons %>
+    <%= f.input :distance_limit, label: 'Distance Limit (kilometres)', collection: [5, 10, 15, 20, 25, 50, 100] %>
+    <%= f.submit %>
+    <% end %>
 
-  <%= simple_form_for @food_donation do |f| %>
-  <%= f.input :address %>
-  <%= f.input :dropoff, as: :radio_buttons %>
-  <%= f.input :distance_limit, label: 'Distance Limit (kilometres)', collection: [5, 10, 15, 20, 25, 50, 100] %>
-  <%= f.submit %>
-  <% end %>
+  </div>
+
 </div>
