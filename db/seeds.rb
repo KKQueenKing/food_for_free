@@ -45,19 +45,19 @@ charity = Charity.new(
   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   charity.save!
 
-charity = Charity.new(
-  name: "Thorne Harbour Health",
-  bio: 'Provides healthy and nutritional meal services including brunch, lunch & dinner, in the form of material aid for HIV positive clients attending the Centre.',
-  address: '51 Commercial Rd, South Yarra VIC 3141',
-  email: 'helloenquiries@thorneharbour.org',
-  website: 'https://thorneharbour.org/',
-  phone_number: '(03) 9863 0444',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "Thorne Harbour Health",
+#   bio: 'Provides healthy and nutritional meal services including brunch, lunch & dinner, in the form of material aid for HIV positive clients attending the Centre.',
+#   address: '51 Commercial Rd, South Yarra VIC 3141',
+#   email: 'helloenquiries@thorneharbour.org',
+#   website: 'https://thorneharbour.org/',
+#   phone_number: '(03) 9863 0444',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/36752701_1846568438714950_7155429740067684352_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=EoUunGkui44AX-4uLe6&_nc_ht=scontent.fsyd3-1.fna&oh=bf674168e3bd7d612216225529ebe789&oe=5E9484A0')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/36752701_1846568438714950_7155429740067684352_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=EoUunGkui44AX-4uLe6&_nc_ht=scontent.fsyd3-1.fna&oh=bf674168e3bd7d612216225529ebe789&oe=5E9484A0')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
 # charity = Charity.new(
 #   name: "Church of All Nations",
@@ -73,61 +73,61 @@ charity = Charity.new(
 #   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
 #   charity.save!
 
-charity = Charity.new(
-  name: "Lazarus Centre",
-  bio: 'A free breakfast is provided as emergency relief every day for homeless people and people sleeping rough. Material aid is also provided in the form of small food parcels.',
-  address: '15 Gisborne St, East Melbourne VIC 3002',
-  email: 'hellostmarkscc@anglicarevic.org.au',
-  website: 'https://www.stpeters.org.au/ministries',
-  phone_number: '0427 054 758',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "Lazarus Centre",
+#   bio: 'A free breakfast is provided as emergency relief every day for homeless people and people sleeping rough. Material aid is also provided in the form of small food parcels.',
+#   address: '15 Gisborne St, East Melbourne VIC 3002',
+#   email: 'hellostmarkscc@anglicarevic.org.au',
+#   website: 'https://www.stpeters.org.au/ministries',
+#   phone_number: '0427 054 758',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/l/t1.0-9/67913931_2404623272917307_1721809263199780864_o.jpg?_nc_cat=110&_nc_sid=6e5ad9&_nc_ohc=q0JcDiNx1u4AX9Q7B2a&_nc_ht=scontent.fsyd3-1.fna&oh=664608897747ff7cd79fb536593603b8&oe=5E971031')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/l/t1.0-9/67913931_2404623272917307_1721809263199780864_o.jpg?_nc_cat=110&_nc_sid=6e5ad9&_nc_ohc=q0JcDiNx1u4AX9Q7B2a&_nc_ht=scontent.fsyd3-1.fna&oh=664608897747ff7cd79fb536593603b8&oe=5E971031')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
-charity = Charity.new(
-  name: "Ozanam House ",
-  bio: 'Material aid in the form of free tea, coffee, breakfast and lunch is available five days a week for those who are homeless.',
-  address: '191 Flemington Road, North Melbourne VIC 3051',
-  email: 'hello@vincentcare.org.au',
-  website: 'http://www.vincentcare.org.au/',
-  phone_number: '(03) 8327 7400',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "Ozanam House ",
+#   bio: 'Material aid in the form of free tea, coffee, breakfast and lunch is available five days a week for those who are homeless.',
+#   address: '191 Flemington Road, North Melbourne VIC 3051',
+#   email: 'hello@vincentcare.org.au',
+#   website: 'http://www.vincentcare.org.au/',
+#   phone_number: '(03) 8327 7400',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/43053750_1017212411784536_1355451469133774848_o.png?_nc_cat=111&_nc_sid=85a577&_nc_ohc=oukIfsVfQb8AX-IsQke&_nc_ht=scontent.fsyd3-1.fna&oh=484ebc2ff0d2c73a3f7739f8f159e7c2&oe=5E8605FB')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/43053750_1017212411784536_1355451469133774848_o.png?_nc_cat=111&_nc_sid=85a577&_nc_ohc=oukIfsVfQb8AX-IsQke&_nc_ht=scontent.fsyd3-1.fna&oh=484ebc2ff0d2c73a3f7739f8f159e7c2&oe=5E8605FB')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
-charity = Charity.new(
-  name: "Lighthouse Cafe",
-  bio: 'Provides material aid in the form of a community breakfast and lunch as well as support for people who are homeless, at risk of homelessness or those who are vulnerable living in the metropolitan Melbourne area.',
-  address: 'Level 1, 69 Bourke Street, Melbourne, VIC 3000',
-  email: 'hello@aus.salvationarmy.org',
-  website: 'https://www.salvationarmy.org.au/melbourne614/',
-  phone_number: '1800 266 686',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "Lighthouse Cafe",
+#   bio: 'Provides material aid in the form of a community breakfast and lunch as well as support for people who are homeless, at risk of homelessness or those who are vulnerable living in the metropolitan Melbourne area.',
+#   address: 'Level 1, 69 Bourke Street, Melbourne, VIC 3000',
+#   email: 'hello@aus.salvationarmy.org',
+#   website: 'https://www.salvationarmy.org.au/melbourne614/',
+#   phone_number: '1800 266 686',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://www.salvationarmy.org.au/scribe/themes/unify/images/tsr-logo.png')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('https://www.salvationarmy.org.au/scribe/themes/unify/images/tsr-logo.png')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
-charity = Charity.new(
-  name: "From Us 2 You",
-  bio: 'Volunteers provide healthy and nutritious, hot cooked meals for people who are homeless or at risk of homelessness in metropolitan Melbourne. Material aid in the form of toiletries, blankets, tarps, gloves and scarves are also available.',
-  address: 'Flinders St & Spencer St, Docklands VIC 3008',
-  email: 'fromus2youmelbourne@hotmail.org',
-  website: '',
-  phone_number: '0412 042 069',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "From Us 2 You",
+#   bio: 'Volunteers provide healthy and nutritious, hot cooked meals for people who are homeless or at risk of homelessness in metropolitan Melbourne. Material aid in the form of toiletries, blankets, tarps, gloves and scarves are also available.',
+#   address: 'Flinders St & Spencer St, Docklands VIC 3008',
+#   email: 'fromus2youmelbourne@hotmail.org',
+#   website: '',
+#   phone_number: '0412 042 069',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://assets.change.org/photos/7/df/wy/FaDFWykEkmllRNt-800x450-noPad.jpg?1490670977')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('https://assets.change.org/photos/7/df/wy/FaDFWykEkmllRNt-800x450-noPad.jpg?1490670977')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
 # charity = Charity.new(
 #   name: "The Big Umbrella",
@@ -143,33 +143,33 @@ charity = Charity.new(
 #   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
 #   charity.save!
 
-charity = Charity.new(
-  name: "Feed Appeal",
-  bio: 'We’re Feed. And we exist to feed Australians in need.',
-  address: '1-7 South Audley Street, Abbotsford VIC 3067',
-  email: 'hello@feedappeal.org.au',
-  website: 'https://www.feedappeal.org.au/',
-  phone_number: '1300 421 041',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "Feed Appeal",
+#   bio: 'We’re Feed. And we exist to feed Australians in need.',
+#   address: '1-7 South Audley Street, Abbotsford VIC 3067',
+#   email: 'hello@feedappeal.org.au',
+#   website: 'https://www.feedappeal.org.au/',
+#   phone_number: '1300 421 041',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://www.feedappeal.org.au/wp-content/uploads/2019/04/FeedLogo_WebSize.png')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('https://www.feedappeal.org.au/wp-content/uploads/2019/04/FeedLogo_WebSize.png')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
-charity = Charity.new(
-  name: "Melbourne City Mission",
-  bio: 'We exist so that people can lead positive lives, to create their best future, their way.',
-  address: '164-180 Kings Way, South Melbourne VIC 3205',
-  email: 'hello@mcm.com.au',
-  website: 'https://www.mcm.org.au/',
-  phone_number: '(03) 9977 0000',
-  user: demo_user_2
-  )
+# charity = Charity.new(
+#   name: "Melbourne City Mission",
+#   bio: 'We exist so that people can lead positive lives, to create their best future, their way.',
+#   address: '164-180 Kings Way, South Melbourne VIC 3205',
+#   email: 'hello@mcm.com.au',
+#   website: 'https://www.mcm.org.au/',
+#   phone_number: '(03) 9977 0000',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://www.mcm.org.au/-/media/mcm/global/header/mcm.svg?la=en&mh=250&hash=9D010243E6EA7E67BB7081C9D2FD1AA1C089072D')
-  charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  charity.save!
+#   file = URI.open('https://www.mcm.org.au/-/media/mcm/global/header/mcm.svg?la=en&mh=250&hash=9D010243E6EA7E67BB7081C9D2FD1AA1C089072D')
+#   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   charity.save!
 
 # business = Business.new(
 #   name: 'Strange Love',
@@ -231,20 +231,20 @@ business = Business.new(
 #   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
 #   business.save!
 
-business = Business.new(
-  name: 'Woolumbi Farm',
-  bio: 'We are a family run farm in Tyabb, on the Mornington Peninsula, Kenneth and Sonya created Woolumbi Farm from their passion for delicious food and the believe the true paddock to plate experience is second to none.',
-  address: '233 Coolart Rd, Tyabb VIC 3913',
-  email: 'hello@woolumbifarm.org',
-  phone_number: '03 4545 2334',
-  website: 'https://woolumbi.com/',
-  industry: 'Agriculture',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'Woolumbi Farm',
+#   bio: 'We are a family run farm in Tyabb, on the Mornington Peninsula, Kenneth and Sonya created Woolumbi Farm from their passion for delicious food and the believe the true paddock to plate experience is second to none.',
+#   address: '233 Coolart Rd, Tyabb VIC 3913',
+#   email: 'hello@woolumbifarm.org',
+#   phone_number: '03 4545 2334',
+#   website: 'https://woolumbi.com/',
+#   industry: 'Agriculture',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://woolumbi.com/wp-content/uploads/2019/05/logo.svg')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://woolumbi.com/wp-content/uploads/2019/05/logo.svg')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
 # business = Business.new(
 #   name: 'PwC',
@@ -306,20 +306,20 @@ business = Business.new(
 #   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
 #   business.save!
 
-business = Business.new(
-  name: 'Bank of Melbourne',
-  bio: 'Bank of Melbourne is a financial institution operating in Victoria, Australia. A subsidiary of the Westpac Group, it was re-established as a separate entity, and re-commenced operations on 25 July 2011.',
-  address: '100 Collins St, Melbourne VIC 3000',
-  email: 'hello@bankofmelbourne.online',
-  phone_number: '03 9098 9797',
-  website: 'https://www.bankofmelbourne.com.au/',
-  industry: 'Professional and Technical Services',
-  user: demo_user_2
-  )
+# business = Business.new(
+#   name: 'Bank of Melbourne',
+#   bio: 'Bank of Melbourne is a financial institution operating in Victoria, Australia. A subsidiary of the Westpac Group, it was re-established as a separate entity, and re-commenced operations on 25 July 2011.',
+#   address: '100 Collins St, Melbourne VIC 3000',
+#   email: 'hello@bankofmelbourne.online',
+#   phone_number: '03 9098 9797',
+#   website: 'https://www.bankofmelbourne.com.au/',
+#   industry: 'Professional and Technical Services',
+#   user: demo_user_2
+#   )
 
-  file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/56161600_2712678245440344_1320714366349213696_n.jpg?_nc_cat=1&_nc_sid=85a577&_nc_ohc=pBnTOWNcOK4AX-J1uiT&_nc_ht=scontent.fsyd3-1.fna&oh=1d9a74618b43f01077766c051c9c26c2&oe=5E9442AA')
-  business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
-  business.save!
+#   file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/56161600_2712678245440344_1320714366349213696_n.jpg?_nc_cat=1&_nc_sid=85a577&_nc_ohc=pBnTOWNcOK4AX-J1uiT&_nc_ht=scontent.fsyd3-1.fna&oh=1d9a74618b43f01077766c051c9c26c2&oe=5E9442AA')
+#   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
+#   business.save!
 
 tags_array = ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
   "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit", "Vegetable",
