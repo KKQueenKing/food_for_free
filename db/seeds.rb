@@ -230,6 +230,7 @@ charity = Charity.new(
   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   charity.save!
 
+
 charity = Charity.new(
   name: "Thorne Harbour Health",
   bio: 'Provides healthy and nutritional meal services including brunch, lunch & dinner, in the form of material aid for HIV positive clients attending the Centre.',
@@ -239,6 +240,7 @@ charity = Charity.new(
   phone_number: '(03) 9863 0444',
   user: demo_user_4
   )
+
 
   file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.0-9/36752701_1846568438714950_7155429740067684352_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=EoUunGkui44AX-4uLe6&_nc_ht=scontent.fsyd3-1.fna&oh=bf674168e3bd7d612216225529ebe789&oe=5E9484A0')
   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
@@ -271,6 +273,7 @@ charity = Charity.new(
   file = URI.open('https://scontent.fsyd3-1.fna.fbcdn.net/v/l/t1.0-9/67913931_2404623272917307_1721809263199780864_o.jpg?_nc_cat=110&_nc_sid=6e5ad9&_nc_ohc=q0JcDiNx1u4AX9Q7B2a&_nc_ht=scontent.fsyd3-1.fna&oh=664608897747ff7cd79fb536593603b8&oe=5E971031')
   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   charity.save!
+
 
 charity = Charity.new(
   name: "Ozanam House ",

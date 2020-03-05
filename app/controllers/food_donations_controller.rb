@@ -25,7 +25,8 @@ class FoodDonationsController < ApplicationController
   end
 
   def update
-    @food_donation.update(food_donation_params)
+    @food_items = FoodItem.where(food_donation: @food_donation)
+    @food_donation.update(food_items: @food_items)
 
     redirect_to my_profile_path, notice: "Food Donation has been updated."
   end
