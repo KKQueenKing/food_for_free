@@ -12,13 +12,15 @@
   <div>
     <h1>Add Food Item</h1>
     <%= simple_form_for [@food_donation, FoodItem.new] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :quantity %>
-    <%= f.input :measure, collection: ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres'] %>
-    <%= f.input :expiry_date, as: :date %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
+      <div class="form-card">
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :quantity %>
+        <%= f.input :measure, collection: ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres'] %>
+        <%= f.input :expiry_date, as: :date %>
+        <%= f.input :photo, as: :file %>
+      </div>
+      <%= f.submit %>
     <% end %>
   </div>
 

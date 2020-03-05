@@ -11,6 +11,8 @@ Business.destroy_all
 User.destroy_all
 Tag.destroy_all
 
+puts 'Creating users!'
+
 demo_user_1 = User.new(
     email: 'harry@royal.com',
     password: 'password',
@@ -214,6 +216,9 @@ demo_user_20 = User.new(
   )
 demo_user_20.save!
 
+puts "Created #{User.count} users"
+
+puts 'Creating Charities!'
 
 
 charity = Charity.new(
@@ -355,6 +360,10 @@ charity = Charity.new(
   file = URI.open('https://www.mcm.org.au/-/media/mcm/global/header/mcm.svg?la=en&mh=250&hash=9D010243E6EA7E67BB7081C9D2FD1AA1C089072D')
   charity.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   charity.save!
+
+puts "Created #{Charity.count} charities"
+puts 'Creating Businesses!'
+
 
 business = Business.new(
   name: 'Strange Love',
@@ -505,6 +514,8 @@ business = Business.new(
   file = URI.open('https://cdn2.vectorstock.com/i/1000x1000/37/71/isolated-object-of-avatar-and-dummy-sign-set-of-vector-24213771.jpg')
   business.photo.attach(io: file, filename: 'logo.png', content_type: 'image/png')
   business.save!
+
+puts "Created #{Business.count} businesses"
 
 tags_array = ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
   "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit", "Vegetable",

@@ -1,0 +1,28 @@
+.form-check {
+  position: relative;
+  padding-left: 0;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+
+  .form-check-label {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid rgb(200, 200, 200);
+    background-color: white;
+    text-transform: none;
+    font-weight: normal;
+    border-radius: 2px;
+  }
+  .form-check-input:checked ~ .form-check-label {
+    background-color: red;
+    border-color: red;
+    color: white;
+  }
+  .form-check-input {
+    visibility: hidden;
+    position: absolute;
+    margin: -999999px;
+  }
+
+}
