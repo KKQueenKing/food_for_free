@@ -11,7 +11,7 @@ class FoodItemsController < ApplicationController
 
   def create
     @food_item = FoodItem.new(food_item_params)
-    @business = Business.find(current_user.id)
+    @business = Business.find_by(user: current_user)
     @food_donation = FoodDonation.find(params[:food_donation_id])
     @food_item.business = @business
     @food_item.food_donation = @food_donation
@@ -30,10 +30,17 @@ class FoodItemsController < ApplicationController
   end
 
   def update
+    @food_donation = @food_item.food_donation
+    @food_item.update(food_item_params)
+
+    redirect_to edit_food_donation_path(@food_donation), notice: "Food Item has been updated."
   end
 
   def destroy
+    @food_donation = @food_item.food_donation
     @food_item.destroy
+
+    redirect_to edit_food_donation_path(@food_donation)
   end
 
   private
