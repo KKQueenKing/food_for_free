@@ -1,6 +1,10 @@
 class FoodDonationsController < ApplicationController
   before_action :set_food_donation, only: [:show, :edit, :update, :destroy]
   def index
+    if !current_user.charity
+      redirect_to root_path, notice: "Sorry, you're not authorised to view this page."
+    end
+    #@available = FoodDonation.where(claim: [nil, ""])
     @food_donations = FoodDonation.all
 
     @markers = @food_donations.map do |food_donation|
@@ -14,6 +18,9 @@ class FoodDonationsController < ApplicationController
   end
 
   def show
+    unless (current_user.charity) || (current_user == @food_donation.food_items.first.business.user)
+      redirect_to root_path, notice: "Sorry, you're not authorised to view this page."
+    end
   end
 
   def new

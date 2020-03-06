@@ -1,13 +1,9 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
-  # only appears for charity
-  def new
-    # @user = current_user
-    @review = Review.new
-  end
 
   def create
     @review = Review.new(review_params)
+    @review.claim = @claim
     @review.save!
   end
 
