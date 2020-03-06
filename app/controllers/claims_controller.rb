@@ -7,8 +7,12 @@ class ClaimsController < ApplicationController
     @claim = Claim.new
     @claim.food_donation = FoodDonation.find(params[:food_donation_id])
     @claim.charity = current_user.charity
-    @claim.business = FoodDonation.food_items.first.business
-    @claim.save!
+    @claim.business = @claim.food_donation.food_items.first.business
+    if @claim.save!
+      redirect_to claim_path(@claim), notice: "Claimed!"
+    else
+      redirect_to food_donation_path(@food_donation), notice: "Error, please try again."
+    end
   end
 
   def destroy
