@@ -1,6 +1,9 @@
 class ClaimsController < ApplicationController
   before_action :set_claim, only: [:show, :destroy]
   def show
+    if (current_user != @claim.charity.user) || (current_user != @claim.business.user)
+      redirect_to root_path, notice: "Sorry, you're not authorised to view this page."
+    end
   end
 
   def create

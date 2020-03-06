@@ -17,7 +17,7 @@
           <%= (link_to "Find a Donation", food_donations_path, class: "nav-link") if (user_signed_in? && current_user.charity)  %>
         </li>
         <li class="nav-item active">
-          <%= link_to "Make a Donation", new_food_donation_path, class: "nav-link" %>
+          <%= link_to "Make a Donation", new_food_donation_path, class: "nav-link" if (user_signed_in? && current_user.business) %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "FFF_logo_yellow.png", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
