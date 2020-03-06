@@ -44,7 +44,7 @@ demo_user_3 = User.new(
 demo_user_3.save!
 
 demo_user_4 = User.new(
-    email: '123@web.com',
+    email: 'hihey@gmail.com',
     password: 'password',
     first_name: 'Max',
     last_name: 'Man',

@@ -37,7 +37,7 @@ class FoodDonationsController < ApplicationController
     @food_items = FoodItem.where(food_donation: @food_donation)
     @food_donation.update(food_items: @food_items)
 
-    redirect_to my_profile_path, notice: "Food Donation has been updated."
+    redirect_to food_donation_path(@food_donation), notice: "Food Donation has been updated."
   end
 
   def destroy
