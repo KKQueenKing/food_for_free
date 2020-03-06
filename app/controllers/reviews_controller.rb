@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find(params[:id])
+    #making a change to be able to commit
   end
 
   def review_params
