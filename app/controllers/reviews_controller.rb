@@ -3,8 +3,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.claim = @claim
-    @review.save!
+    @review.claim = Claim.find(params[:claim_id])
+    if @review.save!
+      redirect_to claim_path(@review.claim), notice: "Thanks for your review!"
+    else
+      redirect_to claim_path(@review.claim), notice: "Error"
+    end
   end
 
   def edit
