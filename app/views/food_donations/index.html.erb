@@ -1,30 +1,30 @@
-<h1>FoodDonations#index</h1>
-<p>Find me in app/views/food_donations/index.html.erb</p>
-
-this is the index for food_donations, needs auth so only charities can see not businesses.
-each donation on card
+<h1>Food Donations</h1>
 
 <div class="container">
 
   <% if @food_donations.first.present? %>
     <% @food_donations.each do |donation| %>
-      <p> <%= donation.food_items.first.business.name %> </p>
-      <p> <%= donation.food_items.count %> Items </p>
-      <%= link_to "View", food_donation_path(donation) %>
+        <div class="card donation-card">
+          <h2 class="donation-card-title"><%= donation.food_items.first.business.name %></h2>
+          <% donation.food_items.each do |food_item| %>
+            <div class="donation-card-quantity"> <%= food_item.name %> </div>
+          <% end %>
+          <div class="donation-card-location"><%= link_to "View", food_donation_path(donation) %></div>
+        </div>
     <% end %>
   <% else %>
     <p>There Ain't No Food Donations... you're a selfish bunch</p>
   <% end %>
 </div>
 
-<!-- <div class="map_box">
+<div class="map_box">
   <div
     id="map"
-    style="width: 670px;
+    style="width: 100%;
     height: 600px;"
-    data-markers="<%#= @markers.to_json %>"
-    data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-</div> -->
+</div>
 
 
