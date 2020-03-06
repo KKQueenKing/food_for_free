@@ -3,8 +3,16 @@
 <h3>Some food item stuffs here</h3>
 <p>Find me in app/views/food_donations/show.html.erb</p>
 
-<% if current_user.charity && (!@food_donation.claim) %>
+<div>
+  <ul>
+    <% @food_donation.food_items.each do | food |  %>
+      <li><%= food.name %>, <%= food.quantity %> <%= food.measure %></li>
+    <% end %>
+  </ul>
+</div>
+
+<% if current_user.charity && !@food_donation.claim %>
 <%= simple_form_for [@food_donation, Claim.new] do |f| %>
 <%= f.button :submit, 'We need this!', method: :post, class: 'btn btn-info submit-button' %>
-<% end %>
+  <% end %>
 <% end %>
