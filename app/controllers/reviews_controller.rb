@@ -7,8 +7,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new
-    ####
+    @review = Review.new(review_params)
     @review.save!
   end
 
@@ -29,5 +28,9 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find(params[:id])
+  end
+
+  def review_params
+    params.require(:review).permit(:star, :content)
   end
 end
