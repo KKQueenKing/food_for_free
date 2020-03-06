@@ -4,11 +4,14 @@
   <div>
     When will this donation be available? Please add your hours below.
     E.g. Monday 9-5, Wednesday 7-3.
+
+   <div class="form-card">
     <%= simple_form_for [@food_donation, DonationAvailability.new ] do |f| %>
     <%= f.input :start_time, as: :datetime, html5: true %>
     <%= f.input :end_time, as: :datetime, html5: true %>
     <%= f.button :submit, 'Add Availability', method: :post, class: 'btn btn-info submit-button' %>
     <% end %>
+  </div>
 
     <% @food_donation.food_items.each do |food_item| %>
     <p><%= food_item.name %></p>
@@ -31,13 +34,15 @@
   <div>
     <h1>Add Food Item</h1>
     <%= simple_form_for [@food_donation, FoodItem.new] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :quantity %>
-    <%= f.input :measure, collection: ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres'] %>
-    <%= f.input :expiry_date, as: :date %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
+      <div class="form-card">
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :quantity %>
+        <%= f.input :measure, collection: ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres'] %>
+        <%= f.input :expiry_date, as: :date %>
+        <%= f.input :photo, as: :file %>
+      </div>
+      <%= f.submit %>
     <% end %>
   </div>
   <hr>

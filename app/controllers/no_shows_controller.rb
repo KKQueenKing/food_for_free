@@ -6,6 +6,7 @@ class NoShowsController < ApplicationController
       redirect_to claim_path(@claim), notice: "No show report submitted."
     else
       redirect_to claim_path(@claim), notice: "Unknown error, please try again."
+    end
   end
 
   def destroy
