@@ -1,27 +1,52 @@
+.map_box {
+  display: flex;
+  align-items: center;
+}
+
 .donation-card {
   border-color: white;
   padding: 16px;
+  width: 350px;
+  height: 200px;
+  position: relative;
+  opacity: 1;
+  transform: translateX(100%);
+  transition: opacity 0.3s, transform 0.2s;
+}
 
-  .donation-card-title {
+.donation-card-title {
     font-size: 24px;
     color: $black;
-  }
-  .donation-card-body {
+}
+.donation-card-body {
     overflow-wrap: normal;
     width: 20em;
     color: $black;
-  }
-  .donation-card-quantity {
+}
+.donation-card-quantity {
     color: $black;
-  }
-  .donation-card-location {
+}
+.donation-card-location {
     color: $black;
-  }
-  .donation-card-expiry {
+}
+.donation-card-expiry {
     color: $black;
-  }
+}
+
+.donation-card--active {
+  display: block;
+  z-index: 1;
+  opacity: 1;
+  transform: translateX(0%);
 }
 
 .donation-card-box {
   padding-top: 120px;
+}
+
+.marker-card {
+  position: absolute;
+  // transition: opacity 0.3s, transform 0.2s;
+  // transform: translateX(100%);
+  // z-index: 1;
 }

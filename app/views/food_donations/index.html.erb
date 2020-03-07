@@ -1,21 +1,21 @@
 <h1>Food Donations</h1>
 
-<div class="container">
+<!-- <div class="container">
 
-  <% if @food_donations.first.present? %>
-    <% @food_donations.each do |donation| %>
+  <% #if @food_donations.first.present? %>
+    <%# @food_donations.each do |donation| %>
         <div class="card donation-card">
-          <h2 class="donation-card-title"><%= donation.food_items.first.business.name %></h2>
-          <% donation.food_items.each do |food_item| %>
-            <div class="donation-card-quantity"> <%= food_item.name %> </div>
-          <% end %>
-          <div class="donation-card-location"><%= link_to "View", food_donation_path(donation) %></div>
+          <h2 class="donation-card-title"><%#= donation.food_items.first.business.name %></h2>
+          <% #donation.food_items.each do |food_item| %>
+            <div class="donation-card-quantity"> <%#= food_item.name %> </div>
+          <%# end %>
+          <div class="donation-card-location"><%#= link_to "View", food_donation_path(donation) %></div>
         </div>
-    <% end %>
-  <% else %>
+    <% #end %>
+  <% #else %>
     <p>There Ain't No Food Donations... you're a selfish bunch</p>
-  <% end %>
-</div>
+  <%# end %>
+</div> -->
 
 <div class="map_box">
   <div
@@ -25,6 +25,10 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+  <div class="marker-card">
+
+  </div>
 </div>
 
-
+<div class="container">
+</div>
