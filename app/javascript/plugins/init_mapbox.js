@@ -41,7 +41,12 @@ const addMarkersToMap = (map, markers) => {
     element.style.height = '100px';
         });
   element.addEventListener('click', (event) => {
-    card.innerHTML = `${marker.infoWindow}`
+    card.innerHTML = `${marker.infoWindow}`;
+    updateUi(card);
+    // card.classList.remove('marker-card--active');
+    // card.classList.remove('marker-card');
+    // card.classList.add('marker-card');
+    // card.classList.add('marker-card--active');
 
       });
   // element.addEventListener('click', (event) => {
@@ -56,7 +61,13 @@ const addMarkersToMap = (map, markers) => {
       // .setPopup(popup)
       .addTo(map);
   });
-}
+};
+
+const updateUi = (card) => {
+    card.classList.remove('marker-card--active');
+    card.classList.add('marker-card--active');
+  };
+
 
 
 const fitMapToMarkers = (map, markers) => {
