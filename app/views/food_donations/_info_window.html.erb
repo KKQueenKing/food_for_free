@@ -1,8 +1,0 @@
-
-<!-- <div class="card donation-card"> -->
-  <h2 class="donation-card-title"><%= food_donation.food_items.first.business.name %></h2>
-  <% food_donation.food_items.each do |food_item| %>
-    <div class="donation-card-quantity"> <%= food_item.name %> </div>
-  <% end %>
-  <div class="donation-card-location"><%= link_to "View", food_donation_path(food_donation) %></div>
-<!-- </div> -->

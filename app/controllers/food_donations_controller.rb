@@ -11,8 +11,8 @@ class FoodDonationsController < ApplicationController
       {
         lat: food_donation.latitude,
         lng: food_donation.longitude,
-        image_url: helpers.asset_url('FFF_pindrop_yellow.png'),
-        infoWindow: render_to_string(partial: "info_window", locals: { food_donation: food_donation })
+        image_url: helpers.asset_url('FFF_pindrop_yellow.png')
+        # infoWindow: render_to_string(partial: "info_window", locals: { tool: tool })
       }
     end
   end
