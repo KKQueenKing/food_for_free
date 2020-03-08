@@ -11,7 +11,7 @@
   </ul>
 </div>
 
-<% if current_user.charity && !@food_donation.claim %>
+<% if current_user.charity && (@food_donation.status == "unclaimed") %>
 <%= simple_form_for [@food_donation, Claim.new] do |f| %>
 <%= f.button :submit, 'We need this!', method: :post, class: 'btn btn-info submit-button' %>
   <% end %>

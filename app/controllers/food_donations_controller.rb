@@ -4,7 +4,8 @@ class FoodDonationsController < ApplicationController
     if !current_user.charity
       redirect_to root_path, notice: "Sorry, you're not authorised to view this page."
     end
-    @food_donations = FoodDonation.all
+    @food_donations = FoodDonation.where(status: "unclaimed")
+    # @food_donations = FoodDonation.all
 
     @markers = @food_donations.map do |food_donation|
       {
@@ -36,7 +37,6 @@ class FoodDonationsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -52,8 +52,8 @@ class FoodDonationsController < ApplicationController
     redirect_to my_profile_path
   end
 
-  # def claim_status
-  #   @food_donation.status = "claimed"
+  # def status_toggle
+  #   @food_donation.update(status: "claimed")
   # end
 
   private

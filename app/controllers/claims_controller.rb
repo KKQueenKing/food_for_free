@@ -12,6 +12,7 @@ class ClaimsController < ApplicationController
     @claim.charity = current_user.charity
     @claim.business = @claim.food_donation.food_items.first.business
     if @claim.save!
+      @claim.food_donation.update(status: "claimed")
       redirect_to claim_path(@claim), notice: "Claimed!"
     else
       redirect_to food_donation_path(@food_donation), notice: "Error, please try again."
@@ -19,7 +20,12 @@ class ClaimsController < ApplicationController
   end
 
   def destroy
-    @claim.destroy
+    if @claim.destroy
+      @claim.food_donation.update(status: "unclaimed")
+      redirect_to food_donation_path(@claim.food_donation), notice: "Your claim for this donation has been deleted."
+    else
+      render claim_path, notice: "Cannot delete"
+    end
   end
 
   private
