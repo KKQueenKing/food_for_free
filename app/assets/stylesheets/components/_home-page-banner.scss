@@ -3,11 +3,14 @@
   background-image: url("fruit_and_vegetables.jpg");
   background-size: cover;
   filter: brightness(0.9);
+  position: relative;
 }
 
 .banner-text {
   color: white;
   padding: 30px;
+  position: absolute;
+  bottom: 0;
   h2 {
     font-weight: bold;
     font-size: 48px;
