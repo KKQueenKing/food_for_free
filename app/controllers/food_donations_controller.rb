@@ -4,14 +4,15 @@ class FoodDonationsController < ApplicationController
     if !current_user.charity
       redirect_to root_path, notice: "Sorry, you're not authorised to view this page."
     end
-    @food_donations = FoodDonation.all
+    @food_donations = FoodDonation.where(status: "unclaimed")
+    # @food_donations = FoodDonation.all
 
     @markers = @food_donations.map do |food_donation|
       {
         lat: food_donation.latitude,
         lng: food_donation.longitude,
-        image_url: helpers.asset_url('FFF_pindrop_yellow.png')
-        # infoWindow: render_to_string(partial: "info_window", locals: { tool: tool })
+        image_url: helpers.asset_url('FFF_pindrop_yellow.png'),
+        infoWindow: render_to_string(partial: "info_window", locals: { food_donation: food_donation })
       }
     end
   end
@@ -36,7 +37,6 @@ class FoodDonationsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -52,8 +52,8 @@ class FoodDonationsController < ApplicationController
     redirect_to my_profile_path
   end
 
-  # def claim_status
-  #   @food_donation.status = "claimed"
+  # def status_toggle
+  #   @food_donation.update(status: "claimed")
   # end
 
   private
