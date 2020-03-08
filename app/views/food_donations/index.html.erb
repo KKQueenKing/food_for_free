@@ -2,7 +2,7 @@
 
 <div class="container">
 
-  <% if @food_donations.first.present? %>
+  <% if @food_donations.first %>
     <% @food_donations.each do |donation| %>
         <div class="card donation-card">
           <h2 class="donation-card-title"><%= donation.food_items.first.business.name %></h2>

@@ -1,6 +1,6 @@
 Leave a review:
   <%= simple_form_for [@claim, Review.new] do |f|%>
-    <%= f.input :star, 'Stars', as: :radio_buttons, collection: [0, 1, 2, 3, 4, 5] %>
+    <%= f.input :star, as: :radio_buttons, collection: [0, 1, 2, 3, 4, 5] %>
     <%= f.input :content %>
     <%= f.button :submit, 'Submit Review' %>
   <% end %>
