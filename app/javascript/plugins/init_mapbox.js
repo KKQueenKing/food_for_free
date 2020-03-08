@@ -9,7 +9,7 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/katieking/ck7bg21mc02ko1jqjy7pg3ymu'
   });
 };
 
@@ -26,6 +26,7 @@ const addMarkersToMap = (map, markers) => {
   // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
   const element = document.createElement('div');
   const card = document.querySelector('.marker-card');
+  const donationCard = document.querySelector('.donation-card');
   const close = document.querySelector('.close-card');
   element.className = 'marker';
   element.style.backgroundImage = `url('${marker.image_url}')`;
@@ -45,7 +46,8 @@ const addMarkersToMap = (map, markers) => {
     card.classList.remove('marker-card--active');
     setTimeout(() => { card.classList.add('marker-card--active') }, 500);
     // card.innerHTML = `${marker.infoWindow}`;
-    card.insertAdjacentHTML('afterbegin', `${marker.infoWindow}`);
+    donationCard.innerHTML = `${marker.infoWindow}`;
+    // card.insertAdjacentHTML('afterbegin', `${marker.infoWindow}`);
       });
     // card.classList.remove('marker-card--active');
     // card.classList.remove('marker-card');
@@ -81,8 +83,8 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+                                      // mapboxgl: mapboxgl }));
   }
 };
 
