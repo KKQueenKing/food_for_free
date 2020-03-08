@@ -26,7 +26,7 @@ const addMarkersToMap = (map, markers) => {
   // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
   const element = document.createElement('div');
   const card = document.querySelector('.marker-card');
-  const cards = document.querySelectorAll('.donation-card');
+  const close = document.querySelector('.close-card');
   element.className = 'marker';
   element.style.backgroundImage = `url('${marker.image_url}')`;
   element.style.backgroundSize = 'contain';
@@ -41,30 +41,29 @@ const addMarkersToMap = (map, markers) => {
     element.style.height = '100px';
         });
   element.addEventListener('click', (event) => {
-    card.innerHTML = `${marker.infoWindow}`;
-    updateUi(card);
+    // card.innerHTML = `${marker.infoWindow}`;
+    card.classList.remove('marker-card--active');
+    setTimeout(() => { card.classList.add('marker-card--active') }, 500);
+    // card.innerHTML = `${marker.infoWindow}`;
+    card.insertAdjacentHTML('afterbegin', `${marker.infoWindow}`);
+      });
     // card.classList.remove('marker-card--active');
     // card.classList.remove('marker-card');
     // card.classList.add('marker-card');
     // card.classList.add('marker-card--active');
-
-      });
-  // element.addEventListener('click', (event) => {
-  //   cards.forEach(card => {
-  //     card.classList.remove('donation-card--active');
-  //   });
-  //   cards[0].classList.add('donation-card--active');
-  //   console.log(marker);
-  //       });
-    new mapboxgl.Marker(element)
-      .setLngLat([ marker.lng, marker.lat ])
-      // .setPopup(popup)
-      .addTo(map);
+  close.addEventListener('click', (event) => {
+    // card.innerHTML = `${marker.infoWindow}`;
+    card.classList.remove('marker-card--active');
+  });
+  new mapboxgl.Marker(element)
+    .setLngLat([ marker.lng, marker.lat ])
+    // .setPopup(popup)
+    .addTo(map);
   });
 };
 
 const updateUi = (card) => {
-    card.classList.remove('marker-card--active');
+    // card.classList.remove('marker-card--active');
     card.classList.add('marker-card--active');
   };
 
