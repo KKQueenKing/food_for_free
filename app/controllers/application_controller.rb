@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # def destroy_invalid_food_donations
+  #   food_donations = FoodDonation.where()
+  # end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number, :account])
   end

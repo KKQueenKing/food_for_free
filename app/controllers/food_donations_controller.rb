@@ -4,7 +4,7 @@ class FoodDonationsController < ApplicationController
     if !current_user.charity
       redirect_to root_path, notice: "Sorry, you're not authorised to view this page."
     end
-    @food_donations = FoodDonation.where(status: "unclaimed")
+    @food_donations = FoodDonation.joins(:food_items, :donation_availabilities).distinct.where(status: "unclaimed")
     # @food_donations = FoodDonation.all
 
     @markers = @food_donations.map do |food_donation|
@@ -41,9 +41,11 @@ class FoodDonationsController < ApplicationController
 
   def update
     @food_items = FoodItem.where(food_donation: @food_donation)
-    @food_donation.update(food_items: @food_items)
-
-    redirect_to food_donation_path(@food_donation), notice: "Food Donation has been updated."
+    if @food_items.first && @food_donation.update(food_items: @food_items)
+      redirect_to food_donation_path(@food_donation), notice: "Food Donation has been updated."
+    else
+      render :edit, alert: "Food Items required."
+    end
   end
 
   def destroy
