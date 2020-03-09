@@ -9,7 +9,7 @@ class Business < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :food_items
-  has_many :donations, through: :food_items
+  has_many :food_donations, through: :food_items
   has_many :claims
 
   validates :name, presence: true

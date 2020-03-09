@@ -4,8 +4,19 @@ class FoodDonationsController < ApplicationController
     if !current_user.charity
       redirect_to root_path, notice: "Sorry, you're not authorised to view this page."
     end
-    @food_donations = FoodDonation.joins(:food_items, :donation_availabilities).distinct.where(status: "unclaimed")
+    @donations = FoodDonation.joins(:food_items, :donation_availabilities).distinct.where(status: "unclaimed")
+    if params[:query].present?
+      sql_query = " \
+          food_donations.address ILIKE :query \
+          OR food_items.name ILIKE :query \
+          OR food_items.description ILIKE :query \
+          OR businesses.name ILIKE :query \
+        "
+      @food_donations = @donations.joins(food_items: :business).where(sql_query, query: "%#{params[:query]}%")
     # @food_donations = FoodDonation.all
+    else
+      @food_donations = @donations
+    end
 
     @markers = @food_donations.map do |food_donation|
       {
