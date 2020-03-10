@@ -44,13 +44,17 @@
         <%= f.input :expiry_date, as: :date %>
         <%= f.input :photo, as: :file %>
       </div>
-      <%= f.submit %>
+      <div class="form-actions btn">
+        <%= f.button :submit, 'Create Food Item' %>
+      </div>
     <% end %>
   </div>
   <hr>
   <div>
     <%= simple_form_for @food_donation do |f| %>
-    <%= f.button :submit, 'Complete Donation'%>
+    <div class="form-actions">
+      <%= f.button :submit, 'Complete Donation' %>
+    </div>
     <% end %>
   </div>
 </div>

@@ -6,7 +6,8 @@ class UserBusinessMailer < ApplicationMailer
   #   en.user_business_mailer.welcome.subject
   #
   def welcome
-    @user = params[:user] # Instance variable => available in view
-    mail(to: @user.email, subject: 'Welcome to Food For Free')
+    @user = params[:user]
+    @claim = params[:claim]
+    mail(to: @user.email, subject: 'Food For Free - Your Donation Has Been Claimed!')
   end
 end
