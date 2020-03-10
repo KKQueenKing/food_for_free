@@ -1,8 +1,8 @@
-I'm a page to display details about a particular claim thats been made on a donation
 
 <!-- conditional logic needs to be changed in controller. -->
 
-
+<div class="centered-content container">
+    <div class="card donation-card margin-top">
 Yay for <%= @claim.charity.name %>!
 You have claimed a donation from <%= @claim.business.name %>
 
@@ -21,3 +21,5 @@ This donation includes:
     <%= f.button :submit, "Undo Claim", class: 'btn btn-info submit-button', data: { confirm: "Are you sure? Another organization will be able to claim this donation if you don't need it." }  %>
   <% end %>
 <% end %>
+</div>
+</div>

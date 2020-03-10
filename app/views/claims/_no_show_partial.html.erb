@@ -1,6 +1,14 @@
 <p>If you have arranged with a charity representative to have your donation
   collected and they do not arrive at all, please report this to us with the
   button below:</p>
-  <%= simple_form_for [@claim, NoShow.new] do |f|%>
-    <%= f.button :submit, 'Report No Show', data: { confirm: "Are you sure?" } %>
+    <% no_show = NoShow.find_by(claim_id: @claim.id) %>
+  <% if no_show %>
+  <%= "Thank you for letting us know about this no show. Eliminating food waste is important to us, so we'll get in touch with the organisation to make sure this doesnt happen again." %>
+    <%= simple_form_for no_show, method: :delete do |f| %>
+      <%= f.button :submit, 'Undo', data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger delete-button' %>
+    <% end %>
+  <% else %>
+    <%= simple_form_for [@claim, NoShow.new] do |f|%>
+      <%= f.button :submit, 'Report No Show', data: { confirm: "Are you sure?" }, class: 'btn btn-info submit-button' %>
+    <% end %>
   <% end %>

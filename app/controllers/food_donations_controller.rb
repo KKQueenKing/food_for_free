@@ -21,6 +21,7 @@ class FoodDonationsController < ApplicationController
     unless (current_user.charity) || (current_user == @food_donation.food_items.first.business.user)
       redirect_to root_path, notice: "Sorry, you're not authorised to view this page."
     end
+    @my_claim = @food_donation.claim if current_user.business
   end
 
   def new
@@ -37,6 +38,9 @@ class FoodDonationsController < ApplicationController
   end
 
   def edit
+    if current_user.charity
+      redirect_to root_path, notice: "Sorry, you're not authorised to modify this."
+    end
   end
 
   def update
@@ -63,6 +67,6 @@ class FoodDonationsController < ApplicationController
   end
 
   def food_donation_params
-    params.require(:food_donation).permit(:distance_limit, :address, :dropoff)
+    params.require(:food_donation).permit(:distance_limit, :address, :dropoff, :status)
   end
 end
