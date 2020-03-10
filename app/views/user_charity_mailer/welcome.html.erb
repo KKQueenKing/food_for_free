@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <td style="font-size:14px; font-family: Montserrat, sans-serif; color: #423E37;">
+      <p> Hi <%= @user.first_name %>,</p>
+
+      <p>Thanks for claiming this donation. It has been claimed from <%= @claim.business.name %>.
+        The contact person there is <%= @claim.business.user.first_name %> and their contact details are as follows:
+        <ul>
+          <li>
+            Phone: <%= @claim.business.phone_number %>
+          </li>
+          <li>
+            Address: <%= @claim.business.address %>
+          </li>
+          <li>
+            Email: <%= @claim.business.user.email %>
+          </li>
+        </ul>
+
+
+      <p> Thanks for using Food For Free. By using our service you are helping keep food waste out of landfill and in assisting feeding those in need within our community.</p>
+
+      <p>Regards,</p>
+
+      <p>Food For Free</p>
+
+  <%= link_to image_tag("http://www.foodforfree.online/assets/FFF_logo-fa4d33023cf235be315e76417a93f02a5b6bd5381d9b46b35157568a9e9df17c.png", {style: 'width: 150px;'}), root_url %>
+  </tr>
+</table>

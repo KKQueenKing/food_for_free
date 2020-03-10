@@ -1,0 +1,14 @@
+Hi <%= @user.first_name %>,
+
+Thanks for claiming this donation. It has been claimed from <%= @claim.business.name %>.
+The contact person there is <%= @claim.business.user.first_name %> and their contact details are as follows:
+
+  Phone: <%= @claim.business.phone_number %>
+  Address: <%= @claim.business.address %>
+  Email: <%= @claim.business.user.email %>
+
+Thanks for using Food For Free. By using our service you are helping keep food waste out of landfill and in assisting feeding those in need within our community.
+
+Regards,
+
+Food For Free
