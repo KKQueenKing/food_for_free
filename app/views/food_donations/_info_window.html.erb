@@ -1,8 +1,20 @@
 
 <!-- <div class="card donation-card"> -->
-  <h2 class="donation-card-title"><%= food_donation.food_items.first.business.name %></h2>
+  <div class="donation-card-header">
+    <h2 class="donation-card-title"><%= food_donation.food_items.first.business.name %></h2>
+    <div class="donation-card-photo"><%= cl_image_tag food_donation.food_items.first.business.photo.key %></div>
+  </div>
+
   <% food_donation.food_items.each do |food_item| %>
-    <div class="donation-card-quantity"> <%= food_item.name %> </div>
+    <div class="donation-card-body"> <%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
   <% end %>
-  <div class="donation-card-location"><%= link_to "View", food_donation_path(food_donation) %></div>
+  <div class="donation-card-details">
+    <div class="donation-card-expiry">Expires: <%= food_donation.food_items.first.expiry_date %></div>
+    <% if food_donation.dropoff %>
+      <div class="donation-card-delivery">Delivery up to <%= food_donation.distance_limit %> km</div>
+    <% end %>
+  </div>
+  <div class="donation-card-link yellow-button">
+    <%= link_to "More info", food_donation_path(food_donation) %>
+  </div>
 <!-- </div> -->

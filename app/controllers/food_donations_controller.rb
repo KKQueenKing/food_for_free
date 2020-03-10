@@ -14,6 +14,7 @@ class FoodDonationsController < ApplicationController
         "
       @food_donations = @donations.joins(food_items: :business).where(sql_query, query: "%#{params[:query]}%")
     # @food_donations = FoodDonation.all
+      @food_donations = @donations unless @food_donations.first
     else
       @food_donations = @donations
     end
@@ -26,6 +27,7 @@ class FoodDonationsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { food_donation: food_donation })
       }
     end
+
   end
 
   def show

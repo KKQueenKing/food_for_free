@@ -1,43 +1,32 @@
-<h1>Food Donations</h1>
 
-<!-- <div class="container">
+<div class="container">
+  <div class="index-header">
+    <h1>Search for a donation</h1>
+  </div>
+  <p>Enter your search criteria: eg. location or dietary requirements</p>
 
-  <% # if @food_donations.first %>
-    <% # @food_donations.each do |donation| %>
-        <div class="card donation-card">
-          <h2 class="donation-card-title"><%#= donation.food_items.first.business.name %></h2>
-          <% #donation.food_items.each do |food_item| %>
-            <div class="donation-card-quantity"> <%#= food_item.name %> </div>
-          <%# end %>
-          <div class="donation-card-location"><%#= link_to "View", food_donation_path(donation) %></div>
-        </div>
-    <% #end %>
-  <% #else %>
-    <p>There Ain't No Food Donations...</p>
-  <%# end %>
-</div> -->
-
-<%= form_tag food_donations_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    # class: "form-control",
-    placeholder: "Search Donations"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<div class="map_box">
-  <div
-    id="map"
-    style="width: 100%;
-    height: 100vh;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-
-  <div class="marker-card">
-    <div class="card donation-card">
+  <%= simple_form_for :search, url: food_donations_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i>
+      </button>
+      <input class="form-control search-input" type="text" name="query" id="query" placeholder="eg. Vegetarian" />
     </div>
-    <h3 class="close-card">x</h3>
+  <% end %>
+
+  <div class="map_box">
+    <div
+      id="map"
+      style="width: 100%;
+      height: 60vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
+    <div class="marker-card">
+      <div class="card donation-card">
+      </div>
+      <h3 class="close-card">x</h3>
+    </div>
   </div>
 </div>
