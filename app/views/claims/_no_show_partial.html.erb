@@ -2,5 +2,7 @@
   collected and they do not arrive at all, please report this to us with the
   button below:</p>
   <%= simple_form_for [@claim, NoShow.new] do |f|%>
+  <div class="yellow-button">
     <%= f.button :submit, 'Report No Show', data: { confirm: "Are you sure?" } %>
+  </div>
   <% end %>

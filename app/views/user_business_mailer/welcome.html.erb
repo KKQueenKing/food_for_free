@@ -1,15 +1,31 @@
-<h1>UserBusiness#welcome</h1>
+<table>
+  <tr>
+    <td style="font-size:14px; font-family: Montserrat, sans-serif; color: #423E37;">
+      <p> Hi <%= @user.first_name %>,</p>
 
-<p> Hi <%= @business.user.name %>,</p>
+      <p>Thanks for your donation. It has now been claimed by <%= @claim.charity.name %>.
+        The contact person there is <%= @claim.charity.user.first_name %> and their contact details are as follows:
+        <ul>
+          <li>
+            Phone: <%= @claim.charity.phone_number %>
+          </li>
+          <li>
+            Address: <%= @claim.charity.address %>
+          </li>
+          <li>
+            Email: <%= @claim.charity.user.email %>
+          </li>
+        </ul>
 
-<p>Thanks for your donation. It has now been claimed by <%= @charity.name %>.
-  The contact person there is <%= @charity.user.name %> and their contact details are as follows:
-  Phone: <%= @charity.phone_number %>
-  Address: <%= @charity.address %>
-  Email: <%= @charity.user.email %></p>
 
-<p> Thanks for donating through Food For Free, your donation is helping keep food waste out of landfill and to help feed those in need in our community.</p>
+      <p> Thanks for donating through Food For Free. Your donation is helping keep food waste out of landfill and in assisting feeding those in need within our community.</p>
 
-<p>Regards,</p>
+      <p>Regards,</p>
 
-<p>Food For Free</p>
+      <p>Food For Free</p>
+
+  <%= link_to image_tag("http://www.foodforfree.online/assets/FFF_logo-fa4d33023cf235be315e76417a93f02a5b6bd5381d9b46b35157568a9e9df17c.png", {style: 'width: 150px;'}), root_url %>
+  </tr>
+</table>
+
+

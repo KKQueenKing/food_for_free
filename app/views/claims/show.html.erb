@@ -19,7 +19,9 @@
 
   <% if current_user == @claim.charity.user %>
     <%= simple_form_for @claim, method: :delete do |f|%>
+    <div class="yellow-button">
       <%= f.button :submit, "Undo Claim", class: 'btn btn-info submit-button', data: { confirm: "Are you sure? Another organization will be able to claim this donation if you don't need it." }  %>
+    </div>
     <% end %>
   <% end %>
 </div>
