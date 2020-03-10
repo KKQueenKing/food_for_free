@@ -1,32 +1,92 @@
-<table>
-  <tr>
-    <td style="font-size:14px; font-family: Montserrat, sans-serif; color: #423E37;">
-      <p> Hi <%= @user.first_name %>,</p>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-      <p>Thanks for your donation. It has now been claimed by <%= @claim.charity.name %>.
-        The contact person there is <%= @claim.charity.user.first_name %> and their contact details are as follows:
-        <ul>
-          <li>
-            Phone: <%= @claim.charity.phone_number %>
-          </li>
-          <li>
-            Address: <%= @claim.charity.address %>
-          </li>
-          <li>
-            Email: <%= @claim.charity.user.email %>
-          </li>
-        </ul>
+  <title></title>
+
+  <style type="text/css">
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#FCFFFD;">
+  <center>
+    <%= link_to image_tag("http://www.foodforfree.online/assets/FFF_logo-fa4d33023cf235be315e76417a93f02a5b6bd5381d9b46b35157568a9e9df17c.png", {style: 'width: 120px;'}), root_url %>
+    <table width="640" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#FCFFFD">
+            <td align="center" valign="top" style="font-size:24px; font-family: Montserrat, sans-serif; color: #423E37;">
+              <h2>Thank you for your donation!</h2>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="top">
+              <%= image_tag("https://www.heart.org/-/media/aha/h4gm/article-images/fruit-and-vegetables.jpg?la=en&hash=65387BD7AEEF9C37F30838E6A897796400EE80F4", {style: 'width: 600px;'}) %>
+            </td>
+          </tr>
+        </table>
+        <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+          <tr>
+            <td align="center" valign="top">
+            <td style="font-size:14px; font-family: Montserrat, sans-serif; color: #423E37;">
+              <p> Hi <%= @user.first_name %>,</p>
+
+              <p>Thanks for your donation. It has now been claimed by <strong><%= @claim.charity.name %></strong>.
+                The contact person there is <strong><%= @claim.charity.user.first_name %></strong> and their contact details are as follows:
+                <ul>
+                  <li>
+                    Phone: <strong><%= @claim.charity.phone_number %></strong>
+                  </li>
+                  <li>
+                    Address: <strong><%= @claim.charity.address %></strong>
+                  </li>
+                  <li>
+                    Email: <strong><%= @claim.charity.user.email %></strong>
+                  </li>
+                </ul>
 
 
-      <p> Thanks for donating through Food For Free. Your donation is helping keep food waste out of landfill and in assisting feeding those in need within our community.</p>
+              <p> Thanks for donating through Food For Free. Your donation is helping keep food waste out of landfill and in assisting feeding those in need within our community.</p>
 
-      <p>Regards,</p>
+              <p>Kind regards,</p>
 
-      <p>Food For Free</p>
 
-  <%= link_to image_tag("http://www.foodforfree.online/assets/FFF_logo-fa4d33023cf235be315e76417a93f02a5b6bd5381d9b46b35157568a9e9df17c.png", {style: 'width: 150px;'}), root_url %>
-  </tr>
-</table>
+
+              <strong><h3>FOOD FOR FREE</h3></strong>
+
+            <%= link_to image_tag("http://www.foodforfree.online/assets/FFF_logo-fa4d33023cf235be315e76417a93f02a5b6bd5381d9b46b35157568a9e9df17c.png", {style: 'width: 120px;'}), root_url %>
+          </td>
+        </tr>
+    </table>
+    <table width="600" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="left" valign="top" style="font-size:12px; font-family: Montserrat, sans-serif; color: #7BB0DA;">
+          <p>41 Stewart St
+            <br>
+          Richmond VIC 3121</p>
+          <a style="color: #7BB0DA;" href=mailto:<hello@foodfordfree.online?subject="Donation">hello@foodforefree.online</a>
+        </td>
+      </tr>
+    </table>
+  <br>
+    <table width="600" height="30px" marging-top="10" cellpadding="20" cellspacing="0" border="0" class="wrapper" bgcolor="#7BB0DA">
+      <tr>
+
+        <td align="center" valign="top">
+          <footer>
+            <%= link_to image_tag("https://image.flaticon.com/icons/svg/174/174855.svg", {style: 'width: 30px;'}), "https://www.instagram.com/food.for_free/", target: :_blank %>
+            <%= link_to image_tag("https://image.flaticon.com/icons/svg/733/733579.svg", {style: 'width: 30px;'}), "https://twitter.com/foodforfree2", target: :_blank %>
+          </footer>
+        <!-- Content -->
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
+
+
+
+
 
 
 
