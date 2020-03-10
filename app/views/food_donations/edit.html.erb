@@ -1,27 +1,26 @@
-
-
 <div class="container">
     When will this donation be available? Please add your hours below.
     E.g. Monday 9-5, Wednesday 7-3.
-
-    <div class="form-card">
-      <%= simple_form_for [@food_donation, DonationAvailability.new ] do |f| %>
-      <%= f.input :start_time, as: :datetime, html5: true %>
-      <%= f.input :end_time, as: :datetime, html5: true %>
+   <div class="form-card">
+    <%= simple_form_for [@food_donation, DonationAvailability.new ] do |f| %>
+    <%= f.input :start_time, html5: true %>
+    <%= f.input :end_time, html5: true %>
+    <div class="form-actions">
       <%= f.button :submit, 'Add Availability', method: :post, class: 'btn btn-info submit-button' %>
-      <% end %>
     </div>
+    <% end %>
+  </div>
 
-    <div>
-      <% @avail_times = @food_donation.donation_availabilities %>
-      <%= 'Available:' unless @avail_times.empty? %>
+  <div>
+    <% @avail_times = @food_donation.donation_availabilities %>
+    <%= 'Available:' unless @avail_times.empty? %>
       <ul>
       <% @avail_times.each do |time| %>
       <li>Between <%= time.start_time %> and <%= time.end_time %></li>
       <% end %>
       </ul>
-    </div>
   </div>
+</div>
 
 <div class="container">
   <div>
@@ -35,7 +34,7 @@
             <li class="btn btn-primary go-back-button"><%= food_item_tag.tag.name %></li>
           <% end %>
         </ul>
-      </p>
+        </p>
       <% end %>
 
     <h1>Add Food Item</h1>
@@ -56,15 +55,16 @@
               "Long-Lasting", "Nut-Free", "Meat", "Fish", "Poultry", "Grains",
               "Baked Goods", "Condiments", "Breakfast", "Soup", "Low Sodium"] %>
           <% end %>
-          <%= f.button :submit, 'Add', method: :post,
-            class: 'btn btn-info submit-button' %>
-          <% end %>
+          <div class="form-actions">
+          <%= f.button :submit, 'Add This Food', method: :post %>
+          </div>
+        <% end %>
       </div>
   </div>
   <hr>
-  <div>
+  <div class="form-actions">
     <%= simple_form_for @food_donation do |f| %>
-    <%= f.button :submit, 'Complete Donation', class: 'btn btn-info submit-button' %>
+    <%= f.button :submit, 'Complete Donation' %>
     <% end %>
   </div>
 </div>

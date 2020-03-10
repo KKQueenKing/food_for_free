@@ -1,12 +1,13 @@
 <% review = Review.find_by(claim_id: @claim.id) %>
-
 <% if review %>
+  Your Review:
   <p><%= review.star %> stars : <%= review.content %></p> (delete and edit buttons here)
 <% else %>
     Leave a review:
       <%= simple_form_for [@claim, Review.new] do |f|%>
       <%= f.input :star, as: :radio_buttons, collection: [0, 1, 2, 3, 4, 5] %>
       <%= f.input :content %>
-      <%= f.button :submit, 'Submit Review' %>
+      <%= f.button :submit, 'Submit Review', class: 'btn yellow-button' %>
     <% end %>
 <% end %>
+
