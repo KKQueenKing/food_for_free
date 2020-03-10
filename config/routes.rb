@@ -14,10 +14,13 @@ Rails.application.routes.draw do
     resources :donation_availabilities, only: [:new, :create]
     resources :food_items, only: [:new, :create]
     resources :claims, only: [:new, :create]
+  end
+
+  resources :food_items, except: [:new, :create] do
     resources :food_item_tags, only: [:create]
   end
 
-  resources :food_items, except: [:new, :create]
+
   resources :donation_availabilities, only: [:edit, :update, :destroy]
   resources :food_item_tags, only: [:destroy]
 

@@ -1,8 +1,7 @@
-<h1>FoodDonations#show</h1>
+<div class="centered-content container">
+    <div class="card donation-card margin-top">
 
-<h3>Some food item stuffs here</h3>
-<p>Find me in app/views/food_donations/show.html.erb</p>
-
+<h3>Food Donation Title</h3>
 <div>
   <ul>
     <% @food_donation.food_items.each do | food |  %>
@@ -16,3 +15,10 @@
 <%= f.button :submit, 'We need this!', method: :post, class: 'btn btn-info submit-button' %>
   <% end %>
 <% end %>
+
+<% if @my_claim %>
+  <%= "Your donation has been claimed!" %>
+    <%= link_to 'See Details', claim_path(@my_claim), class: 'btn btn-info submit-button' %>
+<% end %>
+</div>
+</div>

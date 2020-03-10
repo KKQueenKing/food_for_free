@@ -522,8 +522,7 @@ puts "Created #{Business.count} businesses"
 
 tags_array = ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
   "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit", "Vegetable",
-  "Sugar-Free", "Sweet", "Drink", "Canned Food", "Pickles and Preserves",
-  "Long-Lasting", "Dairy", "Snack", "Nut-Free", "Meat", "Fish", "Poultry",
+  "Sugar-Free", "Sweet", "Drink", "Canned Food", "Long-Lasting", "Dairy", "Nut-Free", "Meat", "Fish", "Poultry",
   "Grains", "Baked Goods", "Condiments", "Breakfast", "Soup", "Low Sodium"]
 
 tags_array.each do |tag_name|

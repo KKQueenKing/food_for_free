@@ -7,6 +7,7 @@ class FoodItemsController < ApplicationController
   def new
     @food_item = FoodItem.new
     @food_donation = FoodDonation.new.find(params[:food_donation_id])
+    @food_item.food_item_tags.build
   end
 
   def create
@@ -17,6 +18,13 @@ class FoodItemsController < ApplicationController
     @food_item.food_donation = @food_donation
 
     if @food_item.save!
+      params[:food_item][:food_item][:name].shift
+      params[:food_item][:food_item][:name].each do |tag_name|
+        food_item_tag = FoodItemTag.new
+        food_item_tag.tag = Tag.find_by(name: tag_name)
+        food_item_tag.food_item = @food_item
+        food_item_tag.save!
+      end
       redirect_to edit_food_donation_path(@food_donation)
     else
       render :new
