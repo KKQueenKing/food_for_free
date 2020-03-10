@@ -66,6 +66,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "food_for_free_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "foodforfree.online" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

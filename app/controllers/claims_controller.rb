@@ -8,11 +8,14 @@ class ClaimsController < ApplicationController
 
   def create
     @claim = Claim.new
-    @claim.food_donation = FoodDonation.find(params[:food_donation_id])
+    food_donation = FoodDonation.find(params[:food_donation_id])
+    @claim.food_donation = food_donation
     @claim.charity = current_user.charity
     @claim.business = @claim.food_donation.food_items.first.business
     if @claim.save!
       @claim.food_donation.update(status: "claimed")
+      # send email to the business, with information from the claim
+      UserBusinessMailer.with(user: food_donation.food_items.first.business.user, claim: @claim).welcome.deliver_now
       redirect_to claim_path(@claim), notice: "Claimed!"
     else
       redirect_to food_donation_path(@food_donation), notice: "Error, please try again."
