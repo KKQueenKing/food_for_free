@@ -16,6 +16,7 @@ class ClaimsController < ApplicationController
       @claim.food_donation.update(status: "claimed")
       # send email to the business, with information from the claim
       UserBusinessMailer.with(user: food_donation.food_items.first.business.user, claim: @claim).welcome.deliver_now
+      UserCharityMailer.with(user: current_user, claim: @claim).welcome.deliver_now
       redirect_to claim_path(@claim), notice: "Claimed!"
     else
       redirect_to food_donation_path(@food_donation), notice: "Error, please try again."

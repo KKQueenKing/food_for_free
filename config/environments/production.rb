@@ -66,7 +66,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "food_for_free_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings   = { api_token: ENV['POSTMARK_API_TOKEN'] }
   config.action_mailer.default_url_options = { host: "foodforfree.online" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
