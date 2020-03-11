@@ -42,9 +42,9 @@
       <%= simple_form_for [@food_donation, FoodItem.new] do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
-        <%= f.input :quantity %>
-        <%= f.input :measure, as: :radio_buttons, collection: ['Grams', 'Kilograms', 'Servings',
-          'Millilitres', 'Litres'] %>
+          <%= f.input :quantity %>
+          <%= f.input :measure, as: :radio_buttons, collection:
+            ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres'], label: '' %>
         <%= f.input :expiry_date,  label: 'About how long until this expires? E.g.:
         A freshly made ______ : 48 hrs. Ripe, fresh fruit & vege or ____ : about 4 days. Baked goods, ______: A week or more properly stored.
         Canned foods, unopened rice/pasta: non-perishable.',
@@ -57,6 +57,7 @@
               "Long-Lasting", "Nut-Free", "Meat", "Fish", "Poultry", "Grains",
               "Baked Goods", "Condiments", "Breakfast", "Soup", "Low Sodium"] %>
           <% end %>
+          <%= f.input :photo, as: :file %>
           <div class="form-actions">
           <%= f.button :submit, 'Add This Food', method: :post %>
           </div>
