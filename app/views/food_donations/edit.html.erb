@@ -1,70 +1,84 @@
 <div class="container">
-    When will this donation be available? Please add your hours below.
-    E.g. Monday 9-5, Wednesday 7-3.
-   <div class="form-card">
-    <%= simple_form_for [@food_donation, DonationAvailability.new ] do |f| %>
-    <%= f.input :start_time, html5: true %>
-    <%= f.input :end_time, html5: true %>
-    <div class="form-actions">
-      <%= f.button :submit, 'Add Availability', method: :post, class: 'btn btn-info submit-button' %>
-    </div>
-    <% end %>
-  </div>
+  <div class="centered-content index-header">
+    <div class="centered-form">
+      <h1>What time suits you?</h1>
+      <p>Enter as many time slots as you need</p>
+       <!--  When will this donation be available? Please add your hours below.
+        E.g. Monday 9-5, Wednesday 7-3. -->
+       <div class="form-card">
+        <%= simple_form_for [@food_donation, DonationAvailability.new ] do |f| %>
+        <%= f.input :start_time, html5: true %>
+        <%= f.input :end_time, html5: true %>
+        <div class="availabilities">
+          <% @avail_times = @food_donation.donation_availabilities %>
+          <%= '' unless @avail_times.empty? %>
 
-  <div>
-    <% @avail_times = @food_donation.donation_availabilities %>
-    <%= 'Available:' unless @avail_times.empty? %>
-      <ul>
-      <% @avail_times.each do |time| %>
-      <li>Between <%= time.start_time %> and <%= time.end_time %></li>
-      <% end %>
-      </ul>
+            <% @avail_times.each do |time| %>
+            <div class="availability"><%= time.start_time %> - <%= time.end_time %></div>
+            <% end %>
+
+        </div>
+        <div class="align-buttons">
+          <div class="blue-button">
+            <%= f.button :submit, 'Add Availability', method: :post %>
+          </div>
+        <% end %>
+
+          <button type="button" class="yellow-button btn">
+            Add Food Items
+          </button>
+
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
 <div class="container">
-  <div>
-    <h1>Food Items</h1>
-      <% @food_donation.food_items.each do |food_item| %>
-        <p><%= food_item.name %></p>
-        <%= cl_image_tag food_item.photo.key, height: 300, width: 400, crop: :fill %>
-        <p>
-        <ul>
-          <% food_item.food_item_tags.each do |food_item_tag| %>
-            <li class="btn btn-primary go-back-button"><%= food_item_tag.tag.name %></li>
-          <% end %>
-        </ul>
-        </p>
-      <% end %>
+  <div class="centered-content index-header">
+    <div class="centered-form">
+      <div>
 
-    <h1>Add Food Item</h1>
-    <div class="form-card">
-      <%= simple_form_for [@food_donation, FoodItem.new] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.input :quantity %>
-        <%= f.input :measure, collection: ['Grams', 'Kilograms', 'Servings',
-          'Millilitres', 'Litres'] %>
-        <%= f.input :expiry_date, as: :date %>
-        <%= f.input :photo, as: :file %>
-          <%= f.simple_fields_for FoodItem.new, :food_item_tags do |t| %>
-            <%= t.input :name, label: 'Choose tags', as: :check_boxes, collection:
-            ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
-              "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit",
-              "Vegetable", "Dairy", "Sugar-Free", "Sweet", "Drink", "Canned Food",
-              "Long-Lasting", "Nut-Free", "Meat", "Fish", "Poultry", "Grains",
-              "Baked Goods", "Condiments", "Breakfast", "Soup", "Low Sodium"] %>
+        <h1>What do you have to donate?</h1>
+        <p>Add each food item to your donation</p>
+        <h3>Your food items</h3>
+        <div>
+          <% @food_donation.food_items.each do |food_item| %>
+            <div class="availability"><%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
           <% end %>
-          <div class="form-actions">
-          <%= f.button :submit, 'Add This Food', method: :post %>
+        </div>
+        <div class="form-card">
+          <%= simple_form_for [@food_donation, FoodItem.new] do |f| %>
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :quantity %>
+            <%= f.input :measure, collection: ['Grams', 'Kilograms', 'Servings',
+              'Millilitres', 'Litres'] %>
+            <%= f.input :expiry_date, as: :date %>
+            <%= f.input :photo, as: :file %>
+              <%= f.simple_fields_for FoodItem.new, :food_item_tags do |t| %>
+                <%= t.input :name, label: 'Choose tags', as: :check_boxes, collection:
+                ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
+                  "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit",
+                  "Vegetable", "Dairy", "Sugar-Free", "Sweet", "Drink", "Canned Food",
+                  "Long-Lasting", "Nut-Free", "Meat", "Fish", "Poultry", "Grains",
+                  "Baked Goods", "Condiments", "Breakfast", "Soup", "Low Sodium"] %>
+              <% end %>
+            <div class="align-buttons">
+                <div class="blue-button">
+                <%= f.button :submit, 'Add This Food', method: :post %>
+                </div>
+              <% end %>
+              <div class="form-actions">
+                <%= simple_form_for @food_donation do |f| %>
+                <%= f.button :submit, 'Complete Donation' %>
+                <% end %>
+              </div>
+            </div>
           </div>
-        <% end %>
       </div>
-  </div>
-  <hr>
-  <div class="form-actions">
-    <%= simple_form_for @food_donation do |f| %>
-    <%= f.button :submit, 'Complete Donation' %>
-    <% end %>
+      <hr>
+    </div>
   </div>
 </div>
