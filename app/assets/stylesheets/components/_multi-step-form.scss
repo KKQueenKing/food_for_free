@@ -1,20 +1,24 @@
 .multi-step-form {
   position: relative;
+  width: 100%;
+
 }
 
 .centered-form {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   width: 100%;
   text-align: center;
-  // opacity: 0;
-  // transform: translateX(100%);
-  // transition: opacity 0.3s, transform 0.2s;
+  position: absolute;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0s, transform 0s;
 }
 
 .centered-form--active {
   opacity: 1;
   transform: translateX(0%);
+  transition: opacity 0.3s, transform 0.2s;
 }
 
 .availabilities {
