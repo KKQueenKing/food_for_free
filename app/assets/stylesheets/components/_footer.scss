@@ -12,6 +12,12 @@ footer {
   text-align: center;
   font-size: 40px;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    padding: 0 8px;
+  }
 }
 
 .logout-text {
