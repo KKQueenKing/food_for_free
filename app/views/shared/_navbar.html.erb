@@ -1,5 +1,6 @@
 <nav>
-  <div class="navbar fixed-top navbar-expand-sm navbar-light border-bottom border-info">
+  <div class="navbar fixed-top navbar-expand-sm navbar-light border-info">
+    <div class="container">
       <div class="navbar_logo d-flex">
         <%= link_to image_tag("FFF_logo.png"), root_path %>
         </div>
@@ -12,27 +13,31 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item active mb-1 ml-4 mb-md-0 mr-md-0">
 
           <%= (link_to "Find a Donation", food_donations_path, class: "nav-link") if (user_signed_in? && current_user.charity) %>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active mb-1 ml-4 mb-md-0 mr-md-0">
           <%= link_to "Make a Donation", new_food_donation_path, class: "nav-link" if (user_signed_in? && current_user.business) %>
         </li>
-        <li class="nav-item dropdown">
+        <li class="mb-3 mr-3 mb-md-0 mr-md-0">
+          <%= link_to "Sign In", user_session_path, class: "nav-link" unless user_signed_in? %>
+          <%= link_to current_user.charity.name, charity_path(current_user.charity), class: "nav-link-profile-btn" if (user_signed_in? && current_user.charity) %>
+          <%= link_to current_user.business.name, business_path(current_user.business), class: "nav-link-profile-btn" if (user_signed_in? && current_user.business) %>
+        </li>
+        <!-- <li class="nav-item dropdown">
           <%= image_tag "FFF-hamburger.png", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-            <%= link_to "My Profile", charity_path(current_user.charity), class: "dropdown-item" if (user_signed_in? && current_user.charity) %>
-            <%= link_to "My Profile", business_path(current_user.business), class: "dropdown-item" if (user_signed_in? && current_user.business) %>
             <%= link_to "My Dashboard", my_profile_path, class: "dropdown-item" if user_signed_in? %>
             <%= link_to "Register", new_user_registration_path, class: "nav-link" unless user_signed_in? %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" if user_signed_in? %>
             <%= link_to "Sign In", user_session_path, class: "nav-link" unless user_signed_in? %>
 
           </div>
-        </li>
+        </li> -->
       </ul>
+    </div>
     </div>
 
 </nav>

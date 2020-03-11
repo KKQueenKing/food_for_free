@@ -1,7 +1,6 @@
 footer {
   background: #7BB0DA;
   color: white;
-  text-align: center;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -10,6 +9,12 @@ footer {
 }
 
 .links {
+  text-align: center;
   font-size: 40px;
   padding: 10px;
+}
+
+.logout-text {
+  font-size: 18px
+
 }

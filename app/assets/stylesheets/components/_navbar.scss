@@ -7,7 +7,6 @@
 .navbar_logo {
   img {
     width: 85px;
-    margin-left: 20px;
   }
 }
 
@@ -25,5 +24,22 @@
     margin-right: 20px;
     margin-left: 16px;
     width: 60px;
+  }
+}
+
+
+.nav-link-profile-btn {
+  border: 2px $red solid;
+  border-radius: 0;
+  padding: 5px 10px;
+  color: $red;
+  margin-left: 20px;
+  font-size: 18px;
+  display: block;
+
+  &:hover {
+    background: $red;
+    color: white;
+    text-decoration: none;
   }
 }

@@ -1,24 +1,38 @@
-<div class="centered-content container">
-    <div class="card donation-card margin-top">
+<div class="container index-header">
+    <div class="show-card show-page-text">
+      <h1>Your Donation</h1>
+        <div>
+            <% @food_donation.food_items.each do | food |  %>
+            <div class="food-item-card">
+              <div>
+                <%= food.name %>, <%= food.quantity %> <%= food.measure %> <%= food.food_donation.address %>
+              </div>
+              <div>
+                <% food.food_donation.food_items.first.tags.each do |tag| %>
+                  <%= tag.name %>
+                <% end %>
+              </div>
+              <div>Expiry: <%= food.food_donation.food_items.first.expiry_date %></div>
+              <div>Donated by: <%= food.food_donation.food_items.first.business.name %></div>
+              <div>Industry: <%= food.food_donation.food_items.first.business.industry %></div>
+              <% if food.food_donation.dropoff %>
+                <div >Delivery up to <%= food.food_donation.distance_limit %> km</div>
+              <% end %>
+              </div>
+            </div>
+            <% end %>
 
-<h3>Food Donation Title</h3>
-<div>
-  <ul>
-    <% @food_donation.food_items.each do | food |  %>
-      <li><%= food.name %>, <%= food.quantity %> <%= food.measure %></li>
-    <% end %>
-  </ul>
-</div>
+        </div>
 
-<% if current_user.charity && (@food_donation.status == "unclaimed") %>
-<%= simple_form_for [@food_donation, Claim.new] do |f| %>
-<%= f.button :submit, 'We need this!', method: :post, class: 'btn btn-info submit-button' %>
-  <% end %>
-<% end %>
+        <% if current_user.charity && (@food_donation.status == "unclaimed") %>
+        <%= simple_form_for [@food_donation, Claim.new] do |f| %>
+        <%= f.button :submit, 'We need this!', method: :post, class: 'btn btn-info submit-button' %>
+          <% end %>
+        <% end %>
 
-<% if @my_claim %>
-  <%= "Your donation has been claimed!" %>
-    <%= link_to 'See Details', claim_path(@my_claim), class: 'btn btn-info submit-button' %>
-<% end %>
-</div>
+        <% if @my_claim %>
+          <%= "Your donation has been claimed!" %>
+            <%= link_to 'See Details', claim_path(@my_claim), class: 'btn btn-info submit-button' %>
+        <% end %>
+    </div>
 </div>

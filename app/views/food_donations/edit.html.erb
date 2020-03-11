@@ -6,8 +6,10 @@
       <% else %>
         <div class="centered-form centered-form--active">
       <% end %>
-        <h1>What time suits you?</h1>
-        <p>Enter as many time slots as you need</p>
+        <div class="page-header">
+          <h1>What time suits you?</h1>
+          <p>Enter as many time slots as you need</p>
+        </div>
          <!--  When will this donation be available? Please add your hours below.
           E.g. Monday 9-5, Wednesday 7-3. -->
          <div class="form-card">
@@ -17,7 +19,7 @@
           <div class="availabilities">
             <% @avail_times = @food_donation.donation_availabilities %>
             <%= '' unless @avail_times.empty? %>
-
+            
               <% @avail_times.each do |time| %>
               <div class="availability"><%= time.start_time %> - <%= time.end_time %></div>
               <% end %>
