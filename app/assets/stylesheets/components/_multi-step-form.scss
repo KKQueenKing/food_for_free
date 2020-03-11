@@ -1,0 +1,35 @@
+.multi-step-form {
+  position: relative;
+}
+
+.centered-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  // opacity: 0;
+  // transform: translateX(100%);
+  // transition: opacity 0.3s, transform 0.2s;
+}
+
+.centered-form--active {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.availabilities {
+  margin-top: 32px;
+}
+
+.availability {
+  background: #C6DDEF;
+  padding: 6px 12px;
+  border: 2px solid #A0C7E5;
+  text-align: center;
+  margin: 0px 4px 16px 4px;
+}
+
+.align-buttons {
+  display: flex;
+  justify-content: space-between;
+}
