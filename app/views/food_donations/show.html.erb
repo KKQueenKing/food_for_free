@@ -1,19 +1,25 @@
-<div class="container index-header">
+<div class="container page-header">
     <div class="show-card show-page-text">
-      <h1>Your Donation</h1>
-        <div>
+
+        <h1>Your Donation</h1>
+
+        <div class="card form-card">
             <% @food_donation.food_items.each do | food |  %>
             <div class="food-item-card">
               <div>
-                <%= food.name %>, <%= food.quantity %> <%= food.measure %> <%= food.food_donation.address %>
+                <h4><%= food.name %></h4>
+                <%= food.quantity %> <%= food.measure %><br>
+                Location: <%= food.food_donation.address %>
               </div>
-              <div>
+              <div>Dietarys:
                 <% food.food_donation.food_items.first.tags.each do |tag| %>
-                  <%= tag.name %>
+                   <%= tag.name %> .
                 <% end %>
               </div>
               <div>Expiry: <%= food.food_donation.food_items.first.expiry_date %></div>
-              <div>Donated by: <%= food.food_donation.food_items.first.business.name %></div>
+                <div class="show-card-photo"><%= cl_image_tag @food_donation.food_items.first.photo.key %></div>
+              <div>Donated by: <strong><%= food.food_donation.food_items.first.business.name %></strong><br>
+                <%= link_to 'Company Info', my_profile_path(food.food_donation.food_items.first.business.id) %></div>
               <div>Industry: <%= food.food_donation.food_items.first.business.industry %></div>
               <% if food.food_donation.dropoff %>
                 <div >Delivery up to <%= food.food_donation.distance_limit %> km</div>
