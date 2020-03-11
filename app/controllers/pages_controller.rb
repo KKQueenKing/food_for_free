@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   # show current_user.donations or current_user.claims as applicable
     # @donations = current_user.donations unless empty?
     # @claims = current_user.claims unless empty?
+    @my_donations = FoodDonation.where(FoodItem.first.business.user_id == current_user.id)
   end
 
   def profile

@@ -27,21 +27,24 @@
 
 .donation-card-header {
   display: flex;
-  align-items: flex-end;
+  // align-items: flex-end;
+  padding-bottom: 2px;
 }
 
 .donation-card-title {
   font-weight: bold;
   font-size: 28px;
   color: $black;
+  padding-left: 12px;
 }
 
 .donation-card-photo {
-  position: absolute;
-  top: 40px;
-  right: 16px;
+  // position: absolute;
+  // top: 40px;
+  // right: 16px;
     img {
-      width: 60px;
+      width: 35px;
+
     }
 }
 
