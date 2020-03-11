@@ -6,8 +6,8 @@
     <%= link_to "https://twitter.com/foodforfree2", target: :_blank do %>
       <i class="fab fa-twitter"></i>
     <% end %>
-    <div class="logout-text">
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" if user_signed_in? %>
-    </div>
+  <div class="logout-text">
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" if user_signed_in? %>
+  </div>
   </div>
 </footer>
