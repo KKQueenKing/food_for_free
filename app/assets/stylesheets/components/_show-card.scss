@@ -7,3 +7,23 @@
   position: relative;
 }
 
+.food-item-card {
+  background: white;
+  border: 1px solid $yellow;
+  display: block;
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  .show-card-photo {
+    position: absolute;
+    right: 30px;
+  }
+}
+
+.show-card-photo {
+  border: 1px solid $yellow;
+  img {
+  width: 100px;
+  height: 100px;
+  }
+}
