@@ -1,86 +1,91 @@
 <div class="container">
   <div class="centered-content index-header">
-    <div class="centered-form">
-      <h1>What time suits you?</h1>
-      <p>Enter as many time slots as you need</p>
-       <!--  When will this donation be available? Please add your hours below.
-        E.g. Monday 9-5, Wednesday 7-3. -->
-       <div class="form-card">
-        <%= simple_form_for [@food_donation, DonationAvailability.new ] do |f| %>
-        <%= f.input :start_time, html5: true %>
-        <%= f.input :end_time, html5: true %>
-        <div class="availabilities">
-          <% @avail_times = @food_donation.donation_availabilities %>
-          <%= '' unless @avail_times.empty? %>
+    <div class="multi-step-form">
+      <% if @food_donation.food_items.first %>
+        <div class="centered-form">
+      <% else %>
+        <div class="centered-form centered-form--active">
+      <% end %>
+        <h1>What time suits you?</h1>
+        <p>Enter as many time slots as you need</p>
+         <!--  When will this donation be available? Please add your hours below.
+          E.g. Monday 9-5, Wednesday 7-3. -->
+         <div class="form-card">
+          <%= simple_form_for [@food_donation, DonationAvailability.new ] do |f| %>
+          <%= f.input :start_time, html5: true %>
+          <%= f.input :end_time, html5: true %>
+          <div class="availabilities">
+            <% @avail_times = @food_donation.donation_availabilities %>
+            <%= '' unless @avail_times.empty? %>
 
-            <% @avail_times.each do |time| %>
-            <div class="availability"><%= time.start_time %> - <%= time.end_time %></div>
-            <% end %>
+              <% @avail_times.each do |time| %>
+              <div class="availability"><%= time.start_time %> - <%= time.end_time %></div>
+              <% end %>
 
-        </div>
-        <div class="align-buttons">
-          <div class="blue-button">
-            <%= f.button :submit, 'Add Availability', method: :post %>
           </div>
-        <% end %>
+          <div class="align-buttons">
+            <div class="blue-button">
+              <%= f.button :submit, 'Add Availability', method: :post %>
+            </div>
+          <% end %>
 
-          <button type="button" class="yellow-button btn">
-            Add Food Items
-          </button>
+            <button type="button" class="yellow-button btn" id="multi-step-form-step">
+              Add Food Items
+            </button>
 
+          </div>
         </div>
+
       </div>
 
-    </div>
-  </div>
-</div>
+      <% if @food_donation.food_items.first %>
+        <div class="centered-form centered-form--active">
+      <% else %>
+        <div class="centered-form">
+      <% end %>
 
-<div class="container">
-  <div class="centered-content index-header">
-    <div class="centered-form">
-      <div>
-        <h1>What do you have to donate?</h1>
-        <p>Add each food item to your donation</p>
-        <h3>Your food items</h3>
-        <div>
-          <% @food_donation.food_items.each do |food_item| %>
-            <div class="availability"><%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
-          <% end %>
-        </div>
-        <div class="form-card">
-          <%= simple_form_for [@food_donation, FoodItem.new] do |f| %>
-            <%= f.input :name %>
-            <%= f.input :description %>
-            <%= f.input :quantity %>
-          <%= f.input :measure, as: :radio_buttons, collection:
-            ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres'], label: '' %>
-        <%= f.input :expiry_date,  label: 'About how long until this expires? E.g.:
-        A freshly made ______ : 48 hrs. Ripe, fresh fruit & vege or ____ : about 4 days. Baked goods, ______: A week or more properly stored.
-        Canned foods, unopened rice/pasta: non-perishable.',
-        as: :radio_buttons, collection: ['Up to 48hrs', '4 days', '7+ days', 'Non-Perishable'] %>
-          <%= f.simple_fields_for FoodItem.new, :food_item_tags do |t| %>
-            <%= t.input :name, label: 'Choose tags', as: :check_boxes, collection:
-            ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
-              "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit",
-              "Vegetable", "Dairy", "Sugar-Free", "Sweet", "Drink", "Canned Food",
-              "Long-Lasting", "Nut-Free", "Meat", "Fish", "Poultry", "Grains",
-              "Baked Goods", "Condiments", "Breakfast", "Soup", "Low Sodium"] %>
-          <% end %>
-          <%= f.input :photo, as: :file %>
-            <div class="align-buttons">
-                <div class="blue-button">
-                <%= f.button :submit, 'Add This Food', method: :post %>
-                </div>
-              <% end %>
-              <div class="form-actions">
-                <%= simple_form_for @food_donation do |f| %>
-                <%= f.button :submit, 'Complete Donation' %>
+          <h1>What do you have to donate?</h1>
+          <p>Add each food item to your donation</p>
+          <h3>Your food items</h3>
+          <div>
+            <% @food_donation.food_items.each do |food_item| %>
+              <div class="availability"><%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
+            <% end %>
+          </div>
+          <div class="form-card">
+            <%= simple_form_for [@food_donation, FoodItem.new] do |f| %>
+              <%= f.input :name %>
+              <%= f.input :description %>
+              <%= f.input :quantity %>
+            <%= f.input :measure, as: :radio_buttons, collection:
+              ['Grams', 'Kilograms', 'Servings', 'Millilitres', 'Litres'], label: '' %>
+          <%= f.input :expiry_date,  label: 'About how long until this expires? E.g.:
+          A freshly made ______ : 48 hrs. Ripe, fresh fruit & vege or ____ : about 4 days. Baked goods, ______: A week or more properly stored.
+          Canned foods, unopened rice/pasta: non-perishable.',
+          as: :radio_buttons, collection: ['Up to 48hrs', '4 days', '7+ days', 'Non-Perishable'] %>
+            <%= f.simple_fields_for FoodItem.new, :food_item_tags do |t| %>
+              <%= t.input :name, label: 'Choose tags', as: :check_boxes, collection:
+              ["Gluten-Free", "Dairy-Free", "Lactose-Free", "Halal", "Kosher",
+                "Vegetarian", "Vegan", "Packaged Food", "Prepared Meal", "Fruit",
+                "Vegetable", "Dairy", "Sugar-Free", "Sweet", "Drink", "Canned Food",
+                "Long-Lasting", "Nut-Free", "Meat", "Fish", "Poultry", "Grains",
+                "Baked Goods", "Condiments", "Breakfast", "Soup", "Low Sodium"] %>
+            <% end %>
+            <%= f.input :photo, as: :file %>
+              <div class="align-buttons">
+                  <div class="blue-button">
+                  <%= f.button :submit, 'Add This Food', method: :post %>
+                  </div>
                 <% end %>
+                <div class="form-actions">
+                  <%= simple_form_for @food_donation do |f| %>
+                  <%= f.button :submit, 'Complete Donation' %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
+
       </div>
-      <hr>
     </div>
   </div>
 </div>
