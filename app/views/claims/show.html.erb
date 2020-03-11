@@ -1,45 +1,41 @@
- <% content_for :title  do %>
+<% content_for :title  do %>
   <%= current_user.charity ? 'Your Claim' : 'Your Listing has been claimed!' %>
 <% end %>
+<div class="container">
+  <div class="centered-content index-header">
+        <div class="claim-show-body">
+          <h1>Thank You!</h1>
+            <div class="form-card">
+              <div class="food-item-card">
 
-<div class="centered-content container">
-  <div class="card donation-card margin-top">
-      Yay for <%= @claim.charity.name %>!
-      You have claimed a donation from <%= @claim.business.name %>.
-      You'll receive details on email and....
-        This donation includes:
-          <ul>
-          <%  @claim.food_donation.food_items.each do | food_item | %>
-            <li>food_item.name</li>
-          <% end %>
-          </ul>
-    <%= render 'review_partial' if current_user.charity == @claim.charity %>
-    <%= render 'no_show_partial' if current_user.business == @claim.business %>
+                <div class="claim-show-text">
+                  <p><%= @claim.charity.name %>!
+                  You have claimed a donation from <%= @claim.business.name %>.
+                  The contact person is <strong><%= @claim.business.user.first_name.capitalize %> <%= @claim.business.user.last_name.capitalize %></strong>
+                  and their phone number is <strong><%= @claim.business.user.phone_number %></strong>, their email address is <strong><%= @claim.business.user.email %></strong>.
+                  Please get in contact with them to arrange the transfer of the donation.
+                  An email has been sent to both yourself and <%= @claim.business.user.first_name.capitalize %> with details. You can find more information about <strong><%= @claim.business.name %></strong> <%= link_to 'Here', business_path(@claim.business)  %>.
+                  <% review = Review.find_by(claim_id: @claim.id) %>
+                  <% if ( current_user == @claim.charity.user ) && !review %>
+                  If you no longer want this donation, click here to <%= link_to 'Undo Claim.', claim_path(@claim), method: :delete, data: { confirm: "Are you sure? Another organization will be able to claim this donation if you don't need it." }%>
+                  <% end %>
+                  </p>
+                </div>
+              </div>
 
+              <div class="food-item-card">
 
-    <% if current_user == @claim.charity.user %>
-      <%= simple_form_for @claim, method: :delete do |f|%>
-      <%= f.button :submit, "Undo Claim", class: 'btn yellow-button', data: { confirm: "Are you sure? Another organization will be able to claim this donation if you don't need it." }  %>
-      <%= f.label :submit, "Made a mistake or can't pick up? Please use this button to cancel",display: 'inline' %>
-      <% end %>
-    <% end %>
+                <div class="claim-show-info">
+                  <h1>This donation includes:</h1>
+                  <%  @claim.food_donation.food_items.each do | food_item | %>
+                    <%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %>
+                  <% end %>
+                </div>
 
-
-if @claim.review.nil? // @claim.review.empty?        /// set claim.review, to edit or delete
- ---- review partial
-else
-----
-
-<div class="row">
-<%= simple_form_for @claim.review, method: :delete do |fd| %>
-  <%= fd.button :submit, "Delete Review", class: 'btn yellow-button', data: { confirm: "Are you sure you want to delete this review?" } %>
-<%= end %>
-<%= simple_form_for @claim.review, method: :delete do |fe| %>
-  <%= fe.button :submit, "Edit Review", class: 'btn yellow-button', data: { confirm: "Are you sure you want to delete this review?" } %>
-<%= end %>
-</div>
-
-
-
+                <%= render 'review_partial' if current_user.charity == @claim.charity %>
+                <%= render 'no_show_partial' if current_user.business == @claim.business %>
+              </div>
+      </div>
+    </div>
   </div>
 </div>
