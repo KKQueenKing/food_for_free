@@ -44,6 +44,7 @@ class FoodDonationsController < ApplicationController
 
   def new
     @food_donation = FoodDonation.new
+    @food_donation.dropoff = true
   end
 
   def create
