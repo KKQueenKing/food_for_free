@@ -1,3 +1,7 @@
+<% content_for :title  do %>
+  Donate Now
+<% end %>
+
 <div class="container">
   <div class="centered-content index-header">
     <div class="multi-step-form">
@@ -19,7 +23,7 @@
           <div class="availabilities">
             <% @avail_times = @food_donation.donation_availabilities %>
             <%= '' unless @avail_times.empty? %>
-            
+
               <% @avail_times.each do |time| %>
               <div class="availability"><%= time.start_time %> - <%= time.end_time %></div>
               <% end %>

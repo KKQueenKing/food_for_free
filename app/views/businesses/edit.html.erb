@@ -1,5 +1,9 @@
+<% content_for :title  do %>
+  Update Details for  <%= @business.name %>
+<% end %>
+
 <div class="container">
-  <h3>Edit Business</h3>
+  <h3>Update Details for <%= @business.name %></h3>
   <%= simple_form_for @business do |f| %>
   <div class="form-card">
     <%= f.input :name %>

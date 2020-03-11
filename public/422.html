@@ -51,11 +51,22 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .blob-banner {
+  height: 800px;
+  background-image: url("blob.png");
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-position-x: right;
+  background-size: cover;
+  position: relative;
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/422.html -->
+  <div class="blob-banner">
   <div class="dialog">
     <div>
       <h1>The change you wanted was rejected.</h1>
@@ -63,5 +74,8 @@
     </div>
     <p>If you are the application owner check the logs for more information.</p>
   </div>
+  </div>
+
+  <a href="/" class="btn delete-button">Back Home</a>
 </body>
 </html>

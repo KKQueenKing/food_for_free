@@ -1,3 +1,7 @@
+<% content_for :title  do %>
+  <%= current_user.charity ? 'More Info' : 'Your Donation'%>
+<% end %>
+
 <div class="container page-header">
     <div class="show-card show-page-text">
 
