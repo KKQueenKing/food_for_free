@@ -16,12 +16,15 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    #
-    @review.save!
+    @review.update(review_params)
+
+    redirect_to claim_path(@review.claim_id), notice: "Review has been updated"
   end
 
   def destroy
     @review.destroy
+
+    redirect_to claim_path(@review.claim_id), notice: "Review has been deleted"
   end
 
   private
