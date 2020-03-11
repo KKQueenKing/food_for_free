@@ -3,7 +3,7 @@
   <div class="page-header">
     <h1>Your Review</h1>
   </div>
-  <div class="form-card">
+  <!-- <div class="form-card"> -->
     <div class="stars"><% review.star.times do |s| %>
       <i class="fas fa-star"></i>
     <% end %>
@@ -11,18 +11,18 @@
     <p><%= review.content.capitalize %></p>
     <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_review_path(review) %>
     <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, review_path(review), method: :delete, data: { confirm: "Are you sure?" }%>
-  </div>
+  <!-- </div> -->
 <% else %>
     <div class="page-header">
       <h1>Leave a review</h1>
     </div>
-    <div class="form-card">
+    <!-- <div class="form-card"> -->
       <%= simple_form_for [@claim, Review.new] do |f|%>
       <%= f.input :star, as: :radio_buttons, collection: [0, 1, 2, 3, 4, 5] %>
       <%= f.input :content %>
       <%= f.button :submit, 'Submit Review', class: 'btn yellow-button' %>
     <% end %>
-   </div>
+   <!-- </div> -->
 
 <% end %>
 
