@@ -43,7 +43,7 @@
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.input :quantity %>
-        <%= f.input :measure, collection: ['Grams', 'Kilograms', 'Servings',
+        <%= f.input :measure, as: :radio_buttons, collection: ['Grams', 'Kilograms', 'Servings',
           'Millilitres', 'Litres'] %>
         <%= f.input :expiry_date,  label: 'About how long until this expires? E.g.:
         A freshly made ______ : 48 hrs. Ripe, fresh fruit & vege or ____ : about 4 days. Baked goods, ______: A week or more properly stored.
