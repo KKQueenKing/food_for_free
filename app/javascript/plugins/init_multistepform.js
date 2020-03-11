@@ -1,5 +1,7 @@
+const multiStepFormEl = document.querySelector(".multi-step-form");
+
 export const initMultistepForm = () => {
-  const multiStepFormEl = document.querySelector(".multi-step-form");
+  if (multiStepFormEl) {
   const stepEls = multiStepFormEl.querySelectorAll(".centered-form");
   const nextStepButton = document.getElementById(
     "multi-step-form-step"
@@ -34,5 +36,5 @@ export const initMultistepForm = () => {
     });
     stepEls[stepNumber].classList.add("centered-form--active");
   };
-};
+};};
 

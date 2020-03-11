@@ -1,8 +1,11 @@
 <div class="container">
   <div class="centered-content index-header">
     <div class="multi-step-form">
-
-      <div class="centered-form centered-form--active">
+      <% if @food_donation.food_items.first %>
+        <div class="centered-form">
+      <% else %>
+        <div class="centered-form centered-form--active">
+      <% end %>
         <h1>What time suits you?</h1>
         <p>Enter as many time slots as you need</p>
          <!--  When will this donation be available? Please add your hours below.
@@ -35,7 +38,11 @@
 
       </div>
 
-      <div class="centered-form">
+      <% if @food_donation.food_items.first %>
+        <div class="centered-form centered-form--active">
+      <% else %>
+        <div class="centered-form">
+      <% end %>
 
           <h1>What do you have to donate?</h1>
           <p>Add each food item to your donation</p>
