@@ -1,20 +1,34 @@
-<div class="centered-content container">
-  <div class="card donation-card margin-top">
-      Yay for <%= @claim.charity.name %>!
-      You have claimed a donation from <%= @claim.business.name %>.
-      You'll receive details on email and....
-        This donation includes:
-          <ul>
-          <%  @claim.food_donation.food_items.each do | food_item | %>
-            <li>food_item.name</li>
-          <% end %>
-          </ul>
+<div class="container">
+  <div class="centered-content index-header">
+    <div class="claim-show-body">
+      <div class="claim-show-text">
+        <h1>Thank You!</h1>
+        <p>Yay for <%= @claim.charity.name %>!
+        You have claimed a donation from <%= @claim.business.name %>.
+        You'll receive details on email and....</p>
+
+        <div class="claim-show-info">
+        <h1>This donation includes:</h1>
+        <%  @claim.food_donation.food_items.each do | food_item | %>
+          <%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %>
+        <% end %>
+        </div>
+      </div>
+
+
+
     <%= render 'review_partial' if current_user.charity == @claim.charity %>
     <%= render 'no_show_partial' if current_user.business == @claim.business %>
-    <% if current_user == @claim.charity.user %>
-      <%= simple_form_for @claim, method: :delete do |f|%>
-      <%= f.button :submit, "Undo Claim", class: 'btn yellow-button', data: { confirm: "Are you sure? Another organization will be able to claim this donation if you don't need it." }  %>
+    <% review = Review.find_by(claim_id: @claim.id) %>
+    <div class="undo-button">
+      <% if ( current_user == @claim.charity.user ) && !review %>
+        <%= simple_form_for @claim, method: :delete do |f|%>
+        <div class="blue-button">
+          <%= f.button :submit, "Undo Claim", data: { confirm: "Are you sure? Another organization will be able to claim this donation if you don't need it." }  %>
+        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    </div>
   </div>
 </div>

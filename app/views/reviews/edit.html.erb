@@ -1,11 +1,13 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
 
-Edit your review:
+
+  <div class="page-header">
+    <h1>Edit your review</h1>
+  </div>
   <%= simple_form_for @review do |f|%>
   <div class="form-card">
-    <%= f.input :star, 'Stars', as: :radio_buttons, collection: [ 1, 2, 3, 4, 5] %>
+    <%= f.input :star, as: :radio_buttons, collection: [0, 1, 2, 3, 4, 5] %>
     <%= f.input :content %>
-    <%= f.button :submit, 'Submit Changes' %>
+
+    <%= f.button :submit, 'Submit Changes', class: 'btn yellow-button' %>
   </div>
   <% end %>
