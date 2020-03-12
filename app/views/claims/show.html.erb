@@ -10,19 +10,19 @@
 
                 <div class="claim-show-text">
                   <p><%= @claim.charity.name %>!
-                  You have claimed a donation from <%= @claim.business.name %>.
-                  The contact person is <strong><%= @claim.business.user.first_name.capitalize %> <%= @claim.business.user.last_name.capitalize %></strong>
-                  and their phone number is <strong><%= @claim.business.user.phone_number %></strong>, their email address is <strong><%= @claim.business.user.email %></strong>.
-                  Please get in contact with them to arrange the transfer of the donation.
-                  An email has been sent to both yourself and <%= @claim.business.user.first_name.capitalize %> with details. You can find more information about <strong><%= @claim.business.name %></strong> <%= link_to 'Here', business_path(@claim.business)  %>.
+                  <br>You have claimed a donation from <%= link_to @claim.business.name, business_path(@claim.business) %>. An email has been sent to both yourself and <%= @claim.business.user.first_name.capitalize %> with more information.
+                  <br><strong>Contact Details:</strong> <br>
+                  <%= @claim.business.user.first_name.capitalize %> <%= @claim.business.user.last_name.capitalize %> <br>
+                  <%= @claim.business.user.phone_number %> <br>
+                  <%= @claim.business.user.email %> <br>
                   <% review = Review.find_by(claim_id: @claim.id) %>
                   <% if ( current_user == @claim.charity.user ) && !review %>
-                  If you no longer want this donation, click here to <%= link_to 'Undo Claim.', claim_path(@claim), method: :delete, data: { confirm: "Are you sure? Another organization will be able to claim this donation if you don't need it." }%>
+                  <br>If you no longer want this donation, click here to <%= link_to 'Undo Claim.', claim_path(@claim), method: :delete, data: { confirm: "Are you sure? Another organization will be able to claim this donation if you don't need it." }%>
                   <% end %>
                   </p>
                 </div>
               </div>
-
+              <br>
               <div class="food-item-card">
 
                 <div class="claim-show-info">

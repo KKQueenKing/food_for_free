@@ -27,14 +27,23 @@
 }
 
 .availability {
+  margin: 0 auto;
+  max-width: 400px;
   background: #C6DDEF;
   padding: 6px 12px;
   border: 2px solid #A0C7E5;
   text-align: center;
-  margin: 0px 4px 16px 4px;
+  margin-bottom: 16px;
 }
 
 .align-buttons {
   display: flex;
   justify-content: space-between;
+}
+
+.expiry-examples {
+  margin-top: -16px;
+  margin-bottom: 16px;
+  font-size: 10px;
+  color: rgb(150, 150, 150);
 }
