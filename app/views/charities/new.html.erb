@@ -3,9 +3,11 @@
 <% end %>
 
 <div class="container">
-  <h3>Register Your Charity or Non-Profit Organisation</h3>
-  <p>Please fill in your charity's basic details here.
-  We will contact you with the next steps for verification within two business days.</p>
+  <div class="page-header">
+    <h1>Register Your Charity or Non-Profit Organisation</h1>
+    <p>Please fill in your charity's basic details here.
+    We will contact you with the next steps for verification within two business days.</p>
+  </div>
   <%= simple_form_for @charity do |f| %>
   <div class="form-card">
     <%= f.input :name %>
