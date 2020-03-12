@@ -21,9 +21,7 @@
   position: relative;
 
   .show-card-photo {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+
   }
 }
 
@@ -36,6 +34,26 @@
   }
 }
 
-.food-item-card-header {
+.tag-tags {
+  border-bottom: 2px solid #333;
+  display: inline-block;
+  margin: 0 5px;
+  line-height: 1.3;
+}
 
+.food-item-card-header {
+  display: flex;
+}
+
+.food_item-card-header-content {
+  flex: 1;
+  padding-right: 10px;
+
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.food_item-card-header-quantity {
+  font-size: 14px;
 }

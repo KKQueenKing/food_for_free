@@ -1,0 +1,5 @@
+meta_product_name: "Food For Free"
+meta_title: "Food For Free - Connecting business with the community to reduce food waste and feed those in need"
+meta_description: "Eliminating food waste"
+meta_image: "FFF_logo.png" # should exist in `app/assets/images/`
+twitter_account: "@foodforfree2"   # required for Twitter Cards
