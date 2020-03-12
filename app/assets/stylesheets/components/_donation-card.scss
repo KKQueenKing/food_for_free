@@ -107,3 +107,29 @@
 .close-card:hover {
   opacity: 1;
 }
+
+.donation-card-footer {
+  bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.claim-donation-card-link {
+  // bottom: 12px;
+  // right: 16px;
+  a {
+    color: $black;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $black
+  }
+}
+
+
+.claim-donation-card-details {
+  padding-top: 4px;
+  // bottom: 12px;
+  // left: 16px;
+}
