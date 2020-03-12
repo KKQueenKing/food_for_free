@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     resource.account == 'Business' ? new_business_path : new_charity_path || root_path
   end
 
+  def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
+end
+
   protected
 
   # def destroy_invalid_food_donations
