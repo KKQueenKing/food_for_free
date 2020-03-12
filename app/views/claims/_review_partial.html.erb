@@ -4,9 +4,13 @@
     <h1>Your Review</h1>
   </div>
   <!-- <div class="form-card"> -->
-    <div class="stars"><% review.star.times do |s| %>
+    <div class="stars">
+      <% review.star.times do |s| %>
       <i class="fas fa-star"></i>
-    <% end %>
+      <% end %>
+      <% (5 - review.star).times do |s| %>
+      <i class="far fa-star"></i>
+      <% end %>
     </div>
     <p><%= review.content.capitalize %></p>
     <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_review_path(review) %>

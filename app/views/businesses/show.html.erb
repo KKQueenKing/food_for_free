@@ -43,7 +43,10 @@
           Reviewed by <%= review.claim.charity.name %>
           <div class="stars">
             <% review.star.times do |s| %>
-              <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - review.star).times do |s| %>
+            <i class="far fa-star"></i>
             <% end %>
           </div>
         </div>
