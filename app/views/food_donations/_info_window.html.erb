@@ -6,15 +6,15 @@
   </div>
 
   <% food_donation.food_items.each do |food_item| %>
-    <div class="donation-card-body"> <%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
+    <div class="donation-card-body"> <%= food_item.name.titleize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
   <% end %>
   <div class="donation-card-details">
-    <div class="donation-card-expiry">Expires: <%= food_donation.food_items.first.expiry_date %></div>
+    <div class="donation-card-expiry">Expiry: <%= food_donation.food_items.first.expiry_date %></div>
     <% if food_donation.dropoff %>
       <div class="donation-card-delivery">Delivery up to <%= food_donation.distance_limit %> km</div>
     <% end %>
   </div>
-  <div class="donation-card-link yellow-button">
-    <%= link_to "More info", food_donation_path(food_donation) %>
+  <div class="donation-card-link">
+    <%= link_to "More info", food_donation_path(food_donation), class:'yellow-button btn' %>
   </div>
 <!-- </div> -->
