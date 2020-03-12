@@ -40,9 +40,9 @@
           <h1>Live Donations</h1>
         </div>
         <div class="form-card">
-              <% @donations = FoodDonation.where(FoodItem.first.business.user_id == current_user.id) %>
+              <% @donations = current_user.business.food_donations %>
               <%# @donations = FoodDonation.where() %>
-              <% if @donations.first.food_items.first %>
+              <% if !@donations.empty? %>
               <% @donations.each do |donation| %>
               <div class="food-item-card">
                 <div class="donation-card-header">

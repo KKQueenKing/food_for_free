@@ -2,10 +2,10 @@
   Home
 <% end %>
 
-<% if current_user.charity %>
-  <%#= render 'charity_dashboard_partial'  %>
-<% elsif current_user.business %>
-  <%#= render 'business_dashboard_partial' %>
+<% if user_signed_in? && current_user.charity %>
+  <%= render 'charity_dashboard_partial'  %>
+<% elsif user_signed_in? && current_user.business %>
+  <%= render 'business_dashboard_partial' %>
 <% else %>
   <div class="home-page-banner">
     <div class="container">
