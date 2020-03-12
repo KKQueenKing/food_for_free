@@ -6,7 +6,7 @@
   </div>
 
   <% food_donation.food_items.each do |food_item| %>
-    <div class="donation-card-body"> <%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
+    <div class="donation-card-body"> <%= food_item.name.titleize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
   <% end %>
   <div class="donation-card-details">
     <div class="donation-card-expiry">Expires: <%= food_donation.food_items.first.expiry_date %></div>

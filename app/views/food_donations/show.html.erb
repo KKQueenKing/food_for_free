@@ -11,7 +11,7 @@
             <% @food_donation.food_items.each do | food |  %>
             <div class="food-item-card">
               <div class="food-item-card-header">
-                <h4><%= food.name %></h4>
+                <h4><%= food.name.titleize %></h4>
                   <div class="show-card-photo"><%= cl_image_tag @food_donation.food_items.first.photo.key %></div>
               </div>
               <br>
