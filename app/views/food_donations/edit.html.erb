@@ -2,6 +2,8 @@
   Donate Now
 <% end %>
 
+<% body_class "hide-footer" %>
+
 <div class="container">
   <div class="centered-content index-header">
     <div class="multi-step-form">
@@ -25,7 +27,7 @@
             <%= '' unless @avail_times.empty? %>
 
               <% @avail_times.each do |time| %>
-              <div class="availability"><%= time.start_time %> - <%= time.end_time %></div>
+              <div class="availability"><%= time.start_time.strftime('%a %-d %b %l:%M%P') %> - <%= time.end_time.strftime('%a %-d %b %l:%M%P') %></div>
               <% end %>
 
           </div>

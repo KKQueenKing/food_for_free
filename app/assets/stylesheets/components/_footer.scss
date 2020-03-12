@@ -24,3 +24,9 @@ footer {
   font-size: 18px
 }
 
+.hide-footer {
+  footer {
+    display: none;
+  }
+}
+
