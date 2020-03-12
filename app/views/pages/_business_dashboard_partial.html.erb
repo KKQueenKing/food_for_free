@@ -41,6 +41,7 @@
         </div>
         <div class="form-card">
               <% @donations = current_user.business.food_donations.uniq %>
+              <% @donations = @donations.where(status: 'unclaimed') %>
               <%# @donations = FoodDonation.where() %>
               <% if !@donations.empty? %>
               <% @donations.each do |donation| %>

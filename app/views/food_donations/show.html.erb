@@ -5,7 +5,7 @@
 <div class="container page-header">
     <div class="show-card show-page-text">
 
-        <h1>Your Donation</h1>
+        <h1><%= current_user.charity ? 'More Info' : 'Your Donation'%></h1>
 
         <div class="card form-card">
             <% @food_donation.food_items.each do | food |  %>
