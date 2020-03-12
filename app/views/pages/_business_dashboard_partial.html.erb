@@ -40,7 +40,7 @@
           <h1>Live Donations</h1>
         </div>
         <div class="form-card">
-              <% @donations = current_user.business.food_donations %>
+              <% @donations = current_user.business.food_donations.uniq %>
               <%# @donations = FoodDonation.where() %>
               <% if !@donations.empty? %>
               <% @donations.each do |donation| %>
