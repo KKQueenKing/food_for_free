@@ -9,9 +9,9 @@
     <div class="form-card">
     <%= simple_form_for @food_donation do |f| %>
     <%= f.input :address, placeholder: "eg. 10 Main St, Brunswick..." %>
-    <div class="d-flex align-items-start">
+    <div class="d-flex align-items-center justify-content-around">
       <%= f.input :dropoff, as: :radio_buttons %>
-      <%= f.input :distance_limit, label: 'Distance Limit (kilometres)', collection: [5, 10, 15, 20, 25, 50, 100] %>
+      <div class="distance ml-auto"><%= f.input :distance_limit, label: 'Distance Limit (kilometres)', collection: [5, 10, 15, 20, 25, 50, 100] %></div>
     </div>
     <div class="form-actions">
       <%= f.button :submit, 'Go to available times' %>
