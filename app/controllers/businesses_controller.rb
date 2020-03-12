@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
     @user = current_user
     @business.user = @user
     if @business.save!
-      redirect_to my_profile_path, notice: "Welcome #{@business.name}."
+      redirect_to business_path(@business), notice: "Welcome #{@business.name}."
     else
       render :new
     end

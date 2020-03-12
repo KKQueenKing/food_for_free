@@ -30,3 +30,16 @@ footer {
   }
 }
 
+.page-content {
+  min-height: calc(100vh - 80px - 25px);
+  margin-bottom: -80px;
+}
+
+.page-content::after {
+  content: "";
+  display: block;
+}
+
+footer, .page-content::after {
+  height: 80px;
+}
