@@ -1,14 +1,9 @@
 <% content_for :title  do %>
-  <%= @business.name %><%= (@business.name.last == 's') ? "'" : "'s" %>
-   Profile
+  <%= @business.name %><%= (@business.name.last == 's') ? " " : "'s " %>Profile
 <% end %>
 
-
-
 <div class="container">
-<!--   <div class="page-header">
-  </div> -->
-div.
+<div class="form-card" style="max-width: 550px">
   <div class="profile-card">
     <div class="profile-box">
     <h4 class="profile-title">
@@ -19,32 +14,43 @@ div.
       </div>
     </div>
     <br>
-    <p><strong>Address:</strong> <%= @business.address %></p>
-    <p><strong>Phone:</strong> <%= @business.phone_number %></p>
-    <p><strong>Website:</strong> <a href="<%= @business.website %>"><%= @business.website %></a></p>
-    <p><strong>Industry:</strong> <%= @business.industry %></p>
-    <p><strong>About Us:</strong> <%= @business.bio %></p>
+    <div class="profile-box">
+    <div class="details-title"><strong>Address:</strong></div><div><%= @business.address %> address that i dont </div>
+    </div>
+    <div class="profile-box">
+    <div class="details-title"><strong>Phone:</strong></div><div><%= @business.phone_number %></div>
+    </div>
+    <div class="profile-box">
+    <div class="details-title"><strong>Website:</strong></div><div><a href="<%= @business.website %>"><%= @business.website %></a></div>
+    </div>
+    <div class="profile-box">
+    <div class="details-title"><strong>Industry:</strong></div><div><%= @business.industry %></div>
+    </div>
+    <div class="profile-box">
+    <div class="details-title"><strong>About Us:</strong></div><div><%= @business.bio %></div>
+    </div>
   </div>
   <br>
   <div class="profile-card">
-    <h6 class="profile-title" style="text-align: center;">
+    <h5 class="profile-title" style="text-align: center;">
       Reviews for <%= @business.name %>
-    </h6>
+    </h5>
     <% @business_claims = Claim.where(business_id: @business.id) %>
     <% @business_claim_ids = @business_claims.ids %>
     <% @business_reviews = Review.where(claim_id: @business_claim_ids) %>
-
+<%= asdhfishdf %>
     <% @business_reviews.each do |review| %>
-      <div class="stars"><% review.star.times do |s| %>
-        <i class="fas fa-star"></i>
-      <% end %>
+      <div class="profile-box">
+        Reviewed by <%= review.claim.charity.name %>
+        <div class="stars">
+          <% review.star.times do |s| %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </div>
       </div>
-      <p><%= review.content.capitalize %></p>
+      <p><em>"<%= review.content.capitalize %>"</em></p>
     <% end %>
-
-    <%= @business_claims.count %>
-    <%= @business_reviews.first.star %>
-    <%= @business_claims.first.charity_id %>
+    </div>
   </div>
 </div>
 

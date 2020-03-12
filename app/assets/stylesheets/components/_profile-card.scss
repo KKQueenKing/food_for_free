@@ -13,13 +13,18 @@
     align-items: center;
     justify-content: space-between;
     padding-bottom: 12px;
-    border-bottom: 1px solid $blue;
 }
 
 .profile-title {
     font-weight: bold;
     padding-top: 12px;
     padding-right: 8px;
+    padding-bottom: 12px;
+}
+
+.details-title {
+  margin: 12px 0;
+  flex-shrink: 0;
 }
 
 .profile-photo {
