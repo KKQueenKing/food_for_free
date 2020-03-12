@@ -1,0 +1,32 @@
+.profile-card {
+  background: white;
+  border: 1px solid $yellow;
+  padding: 12px;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $blue;
+}
+
+.profile-title {
+    font-weight: bold;
+    padding-top: 12px;
+    padding-right: 8px;
+}
+
+.profile-photo {
+  img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid $red;
+  }
+}
