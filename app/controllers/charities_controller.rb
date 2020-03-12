@@ -16,7 +16,7 @@ class CharitiesController < ApplicationController
     @charity = Charity.new(charity_params)
     @charity.user = current_user
     if @charity.save!
-      redirect_to my_profile_path, notice: "Welcome #{@charity.name}. You will be contacted by admin to verify your account."
+      redirect_to charity_path(@charity), notice: "Welcome #{@charity.name}. You will be contacted by admin to verify your account."
     else
       render :new
     end
