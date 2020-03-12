@@ -3,7 +3,9 @@
 <% end %>
 
 <div class="container">
-  <h3>Update Details for <%= @charity.name %></h3>
+  <div class="page-header">
+    <h3>Update Details for <%= @charity.name %></h3>
+  </div>
   <%= simple_form_for @charity do |f| %>
   <div class="form-card">
     <%= f.input :name %>
@@ -13,9 +15,9 @@
     <%= f.input :phone_number %>
     <%= f.input :website %>
     <%= f.input :photo, as: :file %>
-  </div>
-  <div  class="form-actions">
-    <%= f.button :submit, 'Save Changes' %>
+    <div  class="form-actions">
+      <%= f.button :submit, 'Save Changes' %>
+    </div>
   </div>
   <% end %>
 </div>

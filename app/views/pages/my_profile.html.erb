@@ -1,29 +1,29 @@
- <% content_for :title  do %>
-  My Profile
-<% end %>
+ <!-- <% content_for :title  do %> -->
+  <!-- My Profile -->
+ <!-- <% end %> -->
 
-This is a dashboard that will show my claims / donations as applicable
+<!-- This is a dashboard that will show my claims / donations as applicable
 
 // iterate names/details into claim cards if current_user.claims?
 
 // iterate names/details into donation cards if current_user.donations?
 
 business should also have it indicated to them at a glance which of their
-donations has a claim attached to it
+ -->donations has a claim attached to it
 
-<%= render 'donation_partial' if (!current_user.business.nil? && !current_user.business.food_items.empty?) %>
+ <!-- <%= render 'donation_partial' if (!current_user.business.nil? && !current_user.business.food_items.empty?) %> -->
 <%#= @my_food = FoodItem.where(business: current_user.business).group("food_donation_id") %>
 <%# @my_food.each do |item| %>
   <%#= item.name %>
 <%# end %>
 
-<%# @my_donations = FoodDonation.where(FoodItem.first.business.user_id == current_user.id) %>
+ <!-- <% @my_donations = FoodDonation.where(FoodItem.first.business.user_id == current_user.id) %> -->
 
-<%# @my_donations.each do |donation| %>
-  <p> <%#= donation.food_items.first.business.name %>'s donation, <%#= donation.food_items.count %>.</p>
-<%# end %>
+ <!-- <% @my_donations.each do |donation| %> -->
+  <!-- <p> <%= donation.food_items.first.business.name %>'s donation, <%= donation.food_items.count %>.</p> -->
+ <!-- <% end %> -->
 
-<div class="container">
+<!-- <div class="container">
   <div class="grid-view">
   <%# my_donations.each do |donation| %>
   <div class="card donation-card">
@@ -34,12 +34,12 @@ donations has a claim attached to it
       </div>
     </div>
  <%# end %>
- </div>
-</div>
+  --></div>
+ <!-- </div> -->
 
-<% current = current_user.id %>
+  <!-- <% current = current_user.id %> -->
 
-SELECT DISTINCT food_donations ??
+<!-- SELECT DISTINCT food_donations ?? -->
 
 <%# sql = "SELECT food_items.food_donation_id, food_items.name, food_items.quantity, food_items.measure FROM food_items JOIN businesses ON food_items.business_id = businesses.id WHERE businesses.user_id = #{current} GROUP BY food_donation_id" %>
 
@@ -50,12 +50,12 @@ SELECT DISTINCT food_donations ??
 
 
 <%# current_user.food_items.first.food_donation.each do |donation| %>
-    <!-- <p>Your donation of  --- food items logic here--- available at -->
+    <!-- <p>Your donation of  --- food items logic here--- available at
     <!-- <%#= donation.address %> for <%#= dropoff ? "dropoff" : "pick-up only" %>.</p> -->
 <%# end %>
 
 
 <%# @my_donation_test = current_user.food_items.first.food_donation %>
-    <p>Your donation of  --- food items logic here--- available at
+    <!-- <p>Your donation of  --- food items logic here--- available at -->
     <%#= my_donation_test.address %> for <%#= my_donation_test.dropoff ? "dropoff" : "pick-up only" %>.</p>
 

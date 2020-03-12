@@ -3,7 +3,9 @@
 <% end %>
 
 <div class="container">
-  <h3>Register Your Business</h3>
+  <div class="page-header">
+    <h1>Register Your Business</h1>
+  </div>
   <%= simple_form_for @business do |f| %>
   <div class="form-card">
     <%= f.input :name %>
@@ -15,9 +17,9 @@
       "Professional and Technical Services", "Hospitality", "Logistics", "Other Services",
       "Mining and Resources", "Clean Energy", "Agriculture"] %>
     <%= f.input :photo, as: :file %>
-  </div>
-  <div class="yellow-button">
-    <%= f.button :submit, 'Create Business' %>
+    <div class="form-actions">
+      <%= f.button :submit, 'Create Business' %>
+    </div>
   </div>
     <% end %>
 </div>
