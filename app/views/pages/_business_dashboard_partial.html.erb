@@ -41,10 +41,10 @@
         </div>
         <div class="form-card">
               <% @donations = current_user.business.food_donations.uniq %>
-              <% @donations = @donations.where(status: 'unclaimed') %>
+              <% @unclaimed_donations = current_user.business.food_donations.where(status: 'unclaimed').uniq || nil %>
               <%# @donations = FoodDonation.where() %>
-              <% if !@donations.empty? %>
-              <% @donations.each do |donation| %>
+              <% if !@unclaimed_donations.nil? %>
+              <% @unclaimed_donations.each do |donation| %>
               <div class="food-item-card">
                 <div class="donation-card-header">
                   <div class="donation-card-photo"><%= cl_image_tag current_user.business.photo.key %></div>
