@@ -17,11 +17,11 @@ donations has a claim attached to it
   <%#= item.name %>
 <%# end %>
 
-<% @my_donations = FoodDonation.where(FoodItem.first.business.user_id == current_user.id) %>
+<%# @my_donations = FoodDonation.where(FoodItem.first.business.user_id == current_user.id) %>
 
-<% @my_donations.each do |donation| %>
-  <p> <%= donation.food_items.first.business.name %>'s donation, <%= donation.food_items.count %>.</p>
-<% end %>
+<%# @my_donations.each do |donation| %>
+  <p> <%#= donation.food_items.first.business.name %>'s donation, <%#= donation.food_items.count %>.</p>
+<%# end %>
 
 <div class="container">
   <div class="grid-view">

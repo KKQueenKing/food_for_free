@@ -23,8 +23,13 @@
 }
 
 .details-title {
-  margin: 12px 0;
+  margin: 12px 8px;
   flex-shrink: 0;
+}
+
+.details-text {
+  text-align: right;
+  padding-left: 16px;
 }
 
 .profile-photo {

@@ -15,19 +15,19 @@
     </div>
     <br>
     <div class="profile-box">
-    <div class="details-title"><strong>Address:</strong></div><div><%= @business.address %> address that i dont </div>
+    <div class="details-title"><strong>Address:</strong></div><div class="details-text"><%= @business.address %></div>
     </div>
     <div class="profile-box">
-    <div class="details-title"><strong>Phone:</strong></div><div><%= @business.phone_number %></div>
+    <div class="details-title"><strong>Phone:</strong></div><div class="details-text"><%= @business.phone_number %></div>
     </div>
     <div class="profile-box">
-    <div class="details-title"><strong>Website:</strong></div><div><a href="<%= @business.website %>"><%= @business.website %></a></div>
+    <div class="details-title"><strong>Website:</strong></div><div class="details-text"><a href="<%= @business.website %>"><%= @business.website %></a></div>
     </div>
     <div class="profile-box">
-    <div class="details-title"><strong>Industry:</strong></div><div><%= @business.industry %></div>
+    <div class="details-title"><strong>Industry:</strong></div><div class="details-text"><%= @business.industry %></div>
     </div>
     <div class="profile-box">
-    <div class="details-title"><strong>About Us:</strong></div><div><%= @business.bio %></div>
+    <div class="details-title"><strong>About Us:</strong></div><div class="details-text" style="margin-left: 8px; text-align: justify;"><%= @business.bio %></div>
     </div>
   </div>
   <br>
@@ -38,7 +38,6 @@
     <% @business_claims = Claim.where(business_id: @business.id) %>
     <% @business_claim_ids = @business_claims.ids %>
     <% @business_reviews = Review.where(claim_id: @business_claim_ids) %>
-<%= asdhfishdf %>
     <% @business_reviews.each do |review| %>
       <div class="profile-box">
         Reviewed by <%= review.claim.charity.name %>
