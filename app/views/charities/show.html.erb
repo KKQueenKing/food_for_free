@@ -1,16 +1,37 @@
 <% content_for :title  do %>
-  <%= @charity.name %> Profile
+  <%= @charity.name %><%= (@business.name.last == 's') ? " " : "'s " %>Profile
 <% end %>
 
+
+
 <div class="container">
-  <h1><%= @charity.name %></h1>
-  <p><%= @charity.bio %></p>
-  <!-- cl_image_tag -->
-    <ul>
-    <li>Phone:<%= @charity.phone_number %></li>
-    <li>Email: <%= @charity.email %></li>
-    <li>Address: <%= @charity.address %></li>
-    <li><a href='<%= @charity.website %>' target='_blank'>See Website</a></li>
-    </ul>
+<!--   <div class="page-header"> -->
+    <div class="form-card" style="max-width: 550px">
+    <div class="profile-card">
+      <div class="profile-box">
+        <h1><%= @charity.name %></h1>
+    <div class="card profile-card">
+    <p><%= @charity.bio %></p>
+      <div class="profile-photo">
+        <%= cl_image_tag @charity.photo.key, alt: "Profile Photo" %>
+      </div>
+    </div>
+
+
+    <table>
+      <tr>
+        <td>Phone:</td><td><%= @charity.phone_number %></td><td>
+      </tr>
+      <tr>
+        <td>Email:</td><td><%= @charity.email %></td>
+      </tr>
+      <tr>
+        <td>Address:</td><td><%= @charity.address %></td>
+      </tr>
+      <tr>
+        <td>Website:</td><td><a href='<%= @charity.website %>' target='_blank'><%= @charity.website %></a></td>
+      </tr>
+    </table>
+  </div>
 </div>
 <!-- need to style li to no bullet -->

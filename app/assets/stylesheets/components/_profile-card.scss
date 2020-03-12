@@ -1,0 +1,42 @@
+.profile-card {
+  background: white;
+  border: 1px solid $yellow;
+  padding: 12px;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+
+.profile-title {
+    font-weight: bold;
+    padding-top: 12px;
+    padding-right: 8px;
+    padding-bottom: 12px;
+}
+
+.details-title {
+  margin: 12px 8px;
+  flex-shrink: 0;
+}
+
+.details-text {
+  text-align: right;
+  padding-left: 16px;
+}
+
+.profile-photo {
+  img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid $red;
+  }
+}
