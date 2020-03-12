@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def my_profile
+    #@my_donations = FoodDonation.where(FoodItem.first.business_id == current_user.business.id)
   end
 
   def profile
