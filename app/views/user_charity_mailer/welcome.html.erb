@@ -29,8 +29,9 @@
           <td style="font-size:14px; font-family: Montserrat, sans-serif; color: #423E37;">
             <p> Hi <%= @user.first_name %>,</p>
 
-            <p>Thanks for claiming this donation. It has been claimed from <strong><%= @claim.business.name %></strong>.
-              The contact person there is <strong><%= @claim.business.user.first_name %></strong> and their contact details are as follows:
+            <p>Thanks for claiming this donation of <% @claim.food_donation.food_items.each do |item| %> <%= item.name %>, <%= item.quantity %> <%= item.measure %><% end %>,
+              this has been claimed from <strong><%= @claim.business.name %></strong>.
+              Please get in contact with <strong><%= @claim.business.user.first_name %></strong> <strong><%= @claim.business.user.last_name %></strong>, their contact details are as follows:
               <ul>
                 <li>
                   Phone: <strong><%= @claim.business.phone_number %></strong>
@@ -40,6 +41,9 @@
                 </li>
                 <li>
                   Email: <strong><%= @claim.business.user.email %></strong>
+                </li>
+                <li>
+                  Website: <strong><%= @claim.business.website %></strong>
                 </li>
               </ul>
 
