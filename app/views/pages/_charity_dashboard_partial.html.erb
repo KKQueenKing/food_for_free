@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="centered-content index-header">
+    <div class="claim-show-body">
+        <div class="page-header">
+          <h1>Donations Claimed</h1>
+        </div>
+        <div class="form-card">
+              <% @claims = Claim.where(charity_id: current_user.charity.id) %>
+              <%# @donations = FoodDonation.where() %>
+              <% @claims.each do |claim| %>
+              <div class="food-item-card">
+                <div class="donation-card-header">
+                  <div class="donation-card-photo"><%= cl_image_tag claim.food_donation.food_items.first.business.photo.key %></div>
+                    <h2 class="donation-card-title"><%= claim.food_donation.food_items.first.business.name %></h2>
+                </div>
+
+                  <% claim.food_donation.food_items.each do |food_item| %>
+                    <div class="donation-card-body"> <%= food_item.name.capitalize %> - <%= food_item.quantity %> <%= food_item.measure %></div>
+                  <% end %>
+                  <div class="donation-card-footer">
+
+                    <div class="claim-donation-card-details">
+                      <div class="donation-card-expiry">Expiry: <%= claim.food_donation.food_items.first.expiry_date %></div>
+                      <% if claim.food_donation.dropoff %>
+                        <div class="donation-card-delivery">Delivery up to <%= claim.food_donation.distance_limit %> km</div>
+                      <% end %>
+                    </div>
+                    <div class="claim-donation-card-link">
+                      <%= link_to "More info", food_donation_path(claim.food_donation), class:'yellow-button btn' %>
+                    </div>
+                  </div>
+              </div>
+              <br>
+              <% end %>
+        </div>
+    </div>
+  </div>
+</div>
