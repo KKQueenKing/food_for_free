@@ -38,15 +38,15 @@
     <% @business_claims = Claim.where(business_id: @business.id) %>
     <% @business_claim_ids = @business_claims.ids %>
     <% @business_reviews = Review.where(claim_id: @business_claim_ids) %>
-    <% @business_reviews.each do |review| %>
-      <div class="profile-box">
-        Reviewed by <%= review.claim.charity.name %>
-        <div class="stars">
-          <% review.star.times do |s| %>
-            <i class="fas fa-star"></i>
-          <% end %>
+      <% @business_reviews.each do |review| %>
+        <div class="profile-box">
+          Reviewed by <%= review.claim.charity.name %>
+          <div class="stars">
+            <% review.star.times do |s| %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
       <p><em>"<%= review.content.capitalize %>"</em></p>
     <% end %>
     </div>

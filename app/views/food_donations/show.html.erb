@@ -10,7 +10,7 @@
         <div class="card form-card">
             <% @food_donation.food_items.each do | food |  %>
             <div class="food-item-card">
-              <div class="food-item-card-header">
+              <div class="food-item-card-header" style="padding-right:100px">
                 <h4><%= food.name.titleize %></h4>
                   <div class="show-card-photo"><%= cl_image_tag @food_donation.food_items.first.photo.key %></div>
               </div>
