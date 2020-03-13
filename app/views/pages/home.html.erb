@@ -4,9 +4,22 @@
   <div class="home-page-banner">
     <div class="container">
       <div class="banner-text">
-        <h2>Food For Free</h2>
-        <p>Connecting the business who wants to give back with the community in need of food.</p>
+        <h2>FOOD FOR FREE</h2>
+        <p>Connecting the business who wants to give back with the community in need of food</p>
+        <br>
       </div>
+      <% if !user_signed_in? %>
+        <div class='container centered-content', style="margin: 0 auto;">
+          <div class="row" style='justify-content: space-around; width: 100%;'>
+          <div class="btn banner-button">
+          <%= link_to "We Have Food To Donate", new_user_registration_path, class:'blue-button btn' %>
+          </div>
+          <div class="btn banner-button">
+          <%= link_to "We Need Food Donations", new_user_registration_path, class:'blue-button btn' %>
+        </div>
+        </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -39,13 +52,6 @@
     and those charities and non-profit organisations running programs for those in need.</p>
 
     <br>
-      <% if !user_signed_in? %>
-        <div class='container centered-content', style="margin: 0 auto;">
-          <button><%= link_to "I'm A Business", class: "btn blue-button" %></button>
-          <button><%= link_to "I'm A Charity",  class: "btn blue-button"%></button>
-        </div>
-        <br>
-      <% end %>
 
     </div>
   </div>
