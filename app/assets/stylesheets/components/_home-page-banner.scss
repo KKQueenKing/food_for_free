@@ -16,12 +16,24 @@
   text-align: center;
   position: relative;
   h2 {
+    font-family: Montserrat;
     font-weight: bold;
     font-size: 48px;
     align-text: center;
     padding-bottom: 20px
   }
 }
+.banner-button {
+  font-variant: all-petite-caps;
+  font-size: 24px;
+  .btn {
+    padding: 12px;
+  font-weight: bold;
+    background-color: white;
+    color: $black;
+  }
+}
+
 
 .banner-text {
     p {
