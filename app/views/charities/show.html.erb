@@ -1,37 +1,44 @@
 <% content_for :title  do %>
-  <%= @charity.name %><%= (@business.name.last == 's') ? " " : "'s " %>Profile
+  <%= @charity.name %><%= (@charity.name.last == 's') ? " " : "'s " %>Profile
 <% end %>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
-<!--   <div class="page-header"> -->
-    <div class="form-card" style="max-width: 550px">
-    <div class="profile-card">
-      <div class="profile-box">
-        <h1><%= @charity.name %></h1>
-    <div class="card profile-card">
-    <p><%= @charity.bio %></p>
-      <div class="profile-photo">
+<div class="form-card" style="max-width: 550px">
+  <div class="profile-card">
+    <div class="profile-box">
+    <h4 class="profile-title">
+    <%= @charity.name %></h4>
+    <div class="profile-photo">
         <%= cl_image_tag @charity.photo.key, alt: "Profile Photo" %>
       </div>
     </div>
-
-
-    <table>
-      <tr>
-        <td>Phone:</td><td><%= @charity.phone_number %></td><td>
-      </tr>
-      <tr>
-        <td>Email:</td><td><%= @charity.email %></td>
-      </tr>
-      <tr>
-        <td>Address:</td><td><%= @charity.address %></td>
-      </tr>
-      <tr>
-        <td>Website:</td><td><a href='<%= @charity.website %>' target='_blank'><%= @charity.website %></a></td>
-      </tr>
-    </table>
+    <br>
+    <div class="profile-box">
+    <div class="details-title"><strong>Address:</strong></div><div class="details-text"><%= @charity.address %></div>
+    </div>
+    <div class="profile-box">
+    <div class="details-title"><strong>Phone:</strong></div><div class="details-text"><%= @charity.phone_number %></div>
+    </div>
+    <div class="profile-box">
+    <div class="details-title"><strong>Website:</strong></div><div class="details-text"><a href="<%= @charity.website %>"><%= @charity.website %></a></div>
+    </div>
+    <div class="profile-box">
+    <div class="details-title"><strong>About Us:</strong></div><div class="details-text" style="margin-left: 8px; text-align: justify;"><%= @charity.bio %></div>
+    </div>
+  </div>
   </div>
 </div>
 <!-- need to style li to no bullet -->
